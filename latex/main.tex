@@ -1,0 +1,124 @@
+\documentclass[12pt]{article}
+
+% Seitenränder
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+% Sprache & Encoding (SEHR WICHTIG)
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} % falls du mit pdflatex arbeitest
+\usepackage[ngerman]{babel}
+
+% Pakete
+\usepackage{graphicx}
+\usepackage{wrapfig} % im Vorspann laden
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows, positioning, backgrounds, fit}
+
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=1cm, minimum height=0.5cm, text centered, draw=black, fill=green!30, font=\tiny]
+\tikzstyle{process} = [rectangle, minimum width=1cm, minimum height=0.4cm, text centered, draw=black, fill=blue!20, font=\tiny]
+\tikzstyle{decision} = [diamond, minimum width=1cm, minimum height=0.5cm, text centered, draw=black, fill=orange!30, aspect=2, font=\tiny]
+\tikzstyle{textnode} = [
+    rectangle,         % Form rechteckig
+    minimum width=1cm, 
+    minimum height=0.4cm,
+    text centered,     % Text zentriert
+    draw=none,         % kein Rahmen
+    fill=none,         % kein Hintergrund
+    font=\tiny
+]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+%\usepackage{siunitx}
+\usepackage[section]{placeins}
+\usepackage{subcaption}
+\usepackage{url}
+\usepackage{csquotes}
+\usepackage[justification=centering]{caption}
+\usepackage[acronym]{glossaries}
+
+% Literatur & Links
+%\usepackage{biblatex}
+\usepackage[hidelinks]{hyperref}
+% \usepackage{cleveref}
+\usepackage[backend=biber,sorting=none]{biblatex}
+\graphicspath{{bachelor_latex/Bilder/}{./Bilder/}}
+\addbibresource{Bibliography.bib}
+\addbibresource{My Library.bib}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITELSEITE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{titlepage}
+    \noindent
+    \begin{minipage}[t]{0.45\textwidth}
+        \includegraphics[height=3.5cm]{Bilder/AILandLogoquadratisch.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.45\textwidth}
+        \raggedleft
+        \includegraphics[height=3.5cm]{Bilder/uni-duisburg-essen-logo.png}
+    \end{minipage}
+
+    \vspace{1cm}
+
+    \centering
+    {\Huge \textbf{Universität Duisburg – Essen}\par}
+    \vspace{0.3cm}
+    {\Large Fakultät Physik\par}
+    {\Large Studiengang: Energy Science\par}
+    \vspace{1cm}
+    {\Large Titel: \par}
+    \vspace{0.3cm}
+    {\Large Konzeption und Simulation einer hybriden Energieversorgung eines Landwirtschaftlichen Feldroboters auf Basis von PV-Modulen, einer PEM-Brennstoffzelle und Lithium-Ionen-Batterien\par}
+    \vspace{0.5cm}
+    {\Large Bachelorarbeit\par}
+    \vspace{0.3cm}
+    {\Large zur Erlangung des akademischen Grades eines\par}
+    \vspace{0.7cm}
+    {\Huge \textbf{Bachelor of Science}\par}
+    \vspace{0.7cm}
+    {\Large vorgelegt von\par}
+    {\Large \textbf{Jonas Friedrich}\par}
+    \vspace{0.5cm}
+    \begin{flushleft}
+        in Kooperation mit AI.Land \\
+        Betreuer UDE:         Prof. Cramer-Kampen \\
+        Betreuer bei AI.Land: Dr.-Ing. Tim Redick \\
+        Bearbeitungszeit: 01 Januar 2026 bis 26.03.2026\\
+        \vspace{0.5cm}
+        Erklärung: Hiermit erkläre ich, dass ich die Arbeit selbstständig verfasst habe. Die verwendeten Quellen sowie die verwendeten Hilfsmittel sind vollständig angegeben. \\
+        \vspace{0.5cm}
+        Duisburg, den 26 März 2026
+    \end{flushleft}
+    \vfill
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INHALTSVERZEICHNIS (EIGENE SEITE)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INHALT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Text/1-Motivation.tex}
+\input{Text/2-SOTA.tex}
+\input{Text/3-Methodik.tex}
+\input{Text/4-Ergeb_Disk.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LITERATUR
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+
+\printbibliography
+
+
+
+\end{document}

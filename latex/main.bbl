@@ -1,0 +1,675 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{arbeitskräfte}{misc}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.landwirtschaft.de/wirtschaft/beruf-und-betrieb/landwirtschaft-als-beruf/warum-benoetigt-die-landwirtschaft-so-viele-auslaendische-saisonarbeitskraefte}}
+      \field{note}{Website, Zugriff am \today}
+      \field{title}{Warum benötigt die Landwirtschaft so viele ausländische Erntehelferinnen und Erntehelfer?}
+      \field{year}{2025}
+    \endentry
+    \entry{oluwalana_solar-powered-cars_2025}{article}{}
+      \name{author}{2}{}{%
+        {{hash=5063d038065c00fec8a093766ceba64b}{%
+           family={Oluwalana},
+           familyi={O\bibinitperiod},
+           given={Oluwapelumi\bibnamedelima John},
+           giveni={O\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=0b699a160d5cbfd7910fa09e1bd244e1}{%
+           family={Grzesik},
+           familyi={G\bibinitperiod},
+           given={Katarzyna},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{aba32535e71899a1515df681d3e0a4ce}
+      \strng{fullhash}{aba32535e71899a1515df681d3e0a4ce}
+      \strng{bibnamehash}{aba32535e71899a1515df681d3e0a4ce}
+      \strng{authorbibnamehash}{aba32535e71899a1515df681d3e0a4ce}
+      \strng{authornamehash}{aba32535e71899a1515df681d3e0a4ce}
+      \strng{authorfullhash}{aba32535e71899a1515df681d3e0a4ce}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{This comprehensive review examines the evolution, current state, and future potential of solar-powered electric vehicles ({SEVs}) and vehicle-integrated photovoltaics ({VIPV}). This study analyzed 77 relevant scientific papers published up to March 2025, identifying significant advancements in photovoltaic efficiency, lightweight materials, and integration techniques. Although {SEVs} and {VIPV} show promising potential for sustainable mobility, challenges remain in areas such as energy yield optimization, climate adaptability, and economic viability. This review highlights research gaps and proposes future directions, emphasizing the need for standardized testing protocols, improved energy management systems, and innovative material solutions to address these challenges. Key findings include the development of {SEVs} from early prototypes to limited commercial applications, the importance of the design and integration of solar photovoltaic systems, advancements in energy management and optimization, the use of lightweight materials, and the impact of climate and shading factors on performance. The review concludes by outlining directions for future research on the advancement of energy management systems, with particular emphasis on optimizing solar energy input, battery efficiency, and economic viability. Furthermore, it is recommended to investigate materials that achieve an optimal balance between durability, cost-effectiveness, and photovoltaic performance, as well as to develop adaptive solar capture designs tailored to diverse vehicle platforms.}
+      \field{day}{10}
+      \field{issn}{1996-1073}
+      \field{journaltitle}{Energies}
+      \field{langid}{english}
+      \field{month}{7}
+      \field{number}{14}
+      \field{shortjournal}{Energies}
+      \field{shorttitle}{Solar-Powered Electric Vehicles}
+      \field{title}{Solar-Powered Electric Vehicles: Comprehensive Review of Technology Advancements, Challenges, and Future Prospects}
+      \field{urlday}{12}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{volume}{18}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{3650}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/en18143650
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mdpi.com/1996-1073/18/14/3650
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/1996-1073/18/14/3650
+      \endverb
+    \endentry
+    \entry{GM_PV_Play_Car_2023}{online}{}
+      \name{author}{1}{}{%
+        {{hash=7d36d0203a5ba771d826436c2bf6e071}{%
+           family={{Electrek}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{7d36d0203a5ba771d826436c2bf6e071}
+      \strng{fullhash}{7d36d0203a5ba771d826436c2bf6e071}
+      \strng{bibnamehash}{7d36d0203a5ba771d826436c2bf6e071}
+      \strng{authorbibnamehash}{7d36d0203a5ba771d826436c2bf6e071}
+      \strng{authornamehash}{7d36d0203a5ba771d826436c2bf6e071}
+      \strng{authorfullhash}{7d36d0203a5ba771d826436c2bf6e071}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2026-02-12}
+      \field{title}{Solar-powered cars: A 70-year-old idea that has yet to reach its full potential}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://electrek.co/2023/05/08/solar-powered-cars-a-70-year-old-idea-that-has-yet-to-reach-its-full-potential/
+      \endverb
+      \verb{url}
+      \verb https://electrek.co/2023/05/08/solar-powered-cars-a-70-year-old-idea-that-has-yet-to-reach-its-full-potential/
+      \endverb
+    \endentry
+    \entry{Lightyear0_Wikipedia_2026}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b6aea1a416c89509a7df1cbb69249cb6}{%
+           family={{Wikipedia contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{bibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorbibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authornamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2026-02-12}
+      \field{title}{Lightyear 0}
+      \field{year}{2026}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/wiki/Lightyear_0
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/wiki/Lightyear_0
+      \endverb
+    \endentry
+    \entry{zhu_solar-powered-planes_2014}{article}{}
+      \name{author}{3}{}{%
+        {{hash=35732d891468beabc59321ea9699f975}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Xiongfeng},
+           giveni={X\bibinitperiod}}}%
+        {{hash=56371788d86348caafb8f1cf91398ef6}{%
+           family={Guo},
+           familyi={G\bibinitperiod},
+           given={Zheng},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=d2ed9611a7bbcd3e9b1ac75a799a9c57}{%
+           family={Hou},
+           familyi={H\bibinitperiod},
+           given={Zhongxi},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{a0ec5f3121eb2075479aa6c46e0dde3b}
+      \strng{fullhash}{a0ec5f3121eb2075479aa6c46e0dde3b}
+      \strng{bibnamehash}{a0ec5f3121eb2075479aa6c46e0dde3b}
+      \strng{authorbibnamehash}{a0ec5f3121eb2075479aa6c46e0dde3b}
+      \strng{authornamehash}{a0ec5f3121eb2075479aa6c46e0dde3b}
+      \strng{authorfullhash}{a0ec5f3121eb2075479aa6c46e0dde3b}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{issn}{03760421}
+      \field{journaltitle}{Progress in Aerospace Sciences}
+      \field{langid}{english}
+      \field{month}{11}
+      \field{shortjournal}{Progress in Aerospace Sciences}
+      \field{shorttitle}{Solar-powered airplanes}
+      \field{title}{Solar-powered airplanes: A historical perspective and future challenges}
+      \field{urlday}{12}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{volume}{71}
+      \field{year}{2014}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{36\bibrangedash 53}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1016/j.paerosci.2014.06.003
+      \endverb
+      \verb{urlraw}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S0376042114000633
+      \endverb
+      \verb{url}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S0376042114000633
+      \endverb
+    \endentry
+    \entry{SolarImpulse2016}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=128427fb3d93a2721603cbfd33ff70a7}{%
+           family={{Solar Impulse}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{128427fb3d93a2721603cbfd33ff70a7}
+      \strng{fullhash}{128427fb3d93a2721603cbfd33ff70a7}
+      \strng{bibnamehash}{128427fb3d93a2721603cbfd33ff70a7}
+      \strng{authorbibnamehash}{128427fb3d93a2721603cbfd33ff70a7}
+      \strng{authornamehash}{128427fb3d93a2721603cbfd33ff70a7}
+      \strng{authorfullhash}{128427fb3d93a2721603cbfd33ff70a7}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.youtube.com/watch?v=dnhL8fiTYoY}}
+      \field{note}{YouTube-Video, Zugriff am \today}
+      \field{title}{Solar Impulse airplane – Best of the round-the-world}
+      \field{year}{2016}
+    \endentry
+    \entry{NASA2002HeliosFactsheet}{report}{}
+      \name{author}{1}{}{%
+        {{hash=a99466efc62427da0bbf9ad8bdef1b9e}{%
+           family={{NASA Dryden Flight Research Center}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {NASA Dryden Flight Research Center}%
+      }
+      \list{location}{1}{%
+        {Edwards, California, USA}%
+      }
+      \strng{namehash}{a99466efc62427da0bbf9ad8bdef1b9e}
+      \strng{fullhash}{a99466efc62427da0bbf9ad8bdef1b9e}
+      \strng{bibnamehash}{a99466efc62427da0bbf9ad8bdef1b9e}
+      \strng{authorbibnamehash}{a99466efc62427da0bbf9ad8bdef1b9e}
+      \strng{authornamehash}{a99466efc62427da0bbf9ad8bdef1b9e}
+      \strng{authorfullhash}{a99466efc62427da0bbf9ad8bdef1b9e}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{FS-2002-08-068-DFRC}
+      \field{title}{Helios Prototype: The Forerunner of 21st Century Solar-Powered ``Atmospheric Satellites''}
+      \field{type}{techreport}
+      \field{year}{2002}
+    \endentry
+    \entry{Noll2004HeliosFindings}{report}{}
+      \name{author}{1}{}{%
+        {{hash=d4131aab842e7417e3d4ceec020443b7}{%
+           family={Noll},
+           familyi={N\bibinitperiod},
+           given={Thomas\bibnamedelima E.},
+           giveni={T\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {NASA Langley Research Center}%
+      }
+      \list{location}{1}{%
+        {Hampton, VA, USA}%
+      }
+      \strng{namehash}{d4131aab842e7417e3d4ceec020443b7}
+      \strng{fullhash}{d4131aab842e7417e3d4ceec020443b7}
+      \strng{bibnamehash}{d4131aab842e7417e3d4ceec020443b7}
+      \strng{authorbibnamehash}{d4131aab842e7417e3d4ceec020443b7}
+      \strng{authornamehash}{d4131aab842e7417e3d4ceec020443b7}
+      \strng{authorfullhash}{d4131aab842e7417e3d4ceec020443b7}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Technical Findings, Lessons Learned, and Recommendations Resulting from the Helios Prototype Vehicle Mishap}
+      \field{type}{techreport}
+      \field{year}{2004}
+    \endentry
+    \entry{ghobadpour_optimal_2023}{article}{}
+      \name{author}{4}{}{%
+        {{hash=b27e051d37e239ab29e6cf837e2f57a8}{%
+           family={Ghobadpour},
+           familyi={G\bibinitperiod},
+           given={Amin},
+           giveni={A\bibinitperiod}}}%
+        {{hash=508a6320cd10200c5056a136de88119f}{%
+           family={Cardenas},
+           familyi={C\bibinitperiod},
+           given={Alben},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a28b1f275d969e2b15c782e50b11b75f}{%
+           family={Monsalve},
+           familyi={M\bibinitperiod},
+           given={German},
+           giveni={G\bibinitperiod}}}%
+        {{hash=e824e52aa2a3a8bff5ea2902854bf63d}{%
+           family={Mousazadeh},
+           familyi={M\bibinitperiod},
+           given={Hossein},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{cdad5094b62374408509458c4177363a}
+      \strng{fullhash}{106fef467b5f23605f3144e5a5f823ce}
+      \strng{bibnamehash}{cdad5094b62374408509458c4177363a}
+      \strng{authorbibnamehash}{cdad5094b62374408509458c4177363a}
+      \strng{authornamehash}{cdad5094b62374408509458c4177363a}
+      \strng{authorfullhash}{106fef467b5f23605f3144e5a5f823ce}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Powertrain electrification in the agricultural vehicles is still in the initial stages. This article analyzes the energy behavior of a Photovoltaic/Fuel Cell Agricultural Mobile Robot ({PV}/{FCAMR}) as the preliminary step before development. This concept incorporates three energy storage sources for the powertrain: a battery pack, a Fuel Cell ({FC}) system, and a Photovoltaic ({PV}) system. This paper proposes an approach based on the Grey Wolf Optimization ({GWO}) and Particle Swarm Optimization ({PSO}) algorithms to determine the sizes of the {FC} and battery of an {FCAMR}. A differential drive mobile robot was used as a case study to extract the typical working cycles of farming applications. The {FCAMR} vehicle model was developed in {MATLAB}/Simulink to evaluate vehicle energy consumption and performance. For the energy analysis and evaluation, the {FCAMR} was tested based on two realistic working cycles comprising circular and rectangular moving patterns. The results showed that the proposed arrangement could extend the {FCAMR} autonomy by 350\% as opposed to the pure electric system. This allows for at least 8 h of work with a tank filled with 150 g hydrogen and a {PV} system with a 0.5 m2 monocrystalline solar panel. The simulation results have demonstrated the relevance and robustness of this approach in relation to various working cycles. The cost comparison between the theoretical and optimization sizing methods showed at least an 8\% decrease for the {FCAMR}. Furthermore, adding the {PV} system extended the vehicle’s range by up to 5\%. This study provides an optimal solution for energy sources sizing of mobile robots as futuristic agricultural vehicles.}
+      \field{day}{17}
+      \field{issn}{2218-6581}
+      \field{journaltitle}{Robotics}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{number}{1}
+      \field{shortjournal}{Robotics}
+      \field{title}{Optimal Design of Energy Sources for a Photovoltaic/Fuel Cell Extended-Range Agricultural Mobile Robot}
+      \field{urlday}{12}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{volume}{12}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{13}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/robotics12010013
+      \endverb
+      \verb{file}
+      \verb Full Text:/home/jonas/Zotero/storage/KL8388Z9/Ghobadpour et al. - 2023 - Optimal Design of Energy Sources for a PhotovoltaicFuel Cell Extended-Range Agricultural Mobile Rob.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mdpi.com/2218-6581/12/1/13
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/2218-6581/12/1/13
+      \endverb
+    \endentry
+    \entry{zhang_energy_2024}{article}{}
+      \name{author}{5}{}{%
+        {{hash=204d7e0df956e563aa3fda380142c68e}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Mingzhu},
+           giveni={M\bibinitperiod}}}%
+        {{hash=886ca980e28eab77ac3906b63dbcd19e}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Xianzhe},
+           giveni={X\bibinitperiod}}}%
+        {{hash=fbacf80560d2a84932378d1d89ad7757}{%
+           family={Han},
+           familyi={H\bibinitperiod},
+           given={Dongyan},
+           giveni={D\bibinitperiod}}}%
+        {{hash=c35da6db5c7027747c0d962c7fb99dda}{%
+           family={Shang},
+           familyi={S\bibinitperiod},
+           given={Lianfeng},
+           giveni={L\bibinitperiod}}}%
+        {{hash=c4fc209afa23b3c5efaa533893c692b7}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Liyou},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{0f48a4412dc2cd082d56c8198bf85841}
+      \strng{fullhash}{874171f1e63f4a63c638f2797ae39860}
+      \strng{bibnamehash}{0f48a4412dc2cd082d56c8198bf85841}
+      \strng{authorbibnamehash}{0f48a4412dc2cd082d56c8198bf85841}
+      \strng{authornamehash}{0f48a4412dc2cd082d56c8198bf85841}
+      \strng{authorfullhash}{874171f1e63f4a63c638f2797ae39860}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{13}
+      \field{issn}{2045-2322}
+      \field{journaltitle}{Scientific Reports}
+      \field{langid}{english}
+      \field{month}{11}
+      \field{number}{1}
+      \field{shortjournal}{Sci Rep}
+      \field{title}{Energy management strategy for fuel cell hybrid tractor considering demand power frequency characteristic compensation}
+      \field{urlday}{12}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{volume}{14}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{27844}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1038/s41598-024-78832-2
+      \endverb
+      \verb{urlraw}
+      \verb https://www.nature.com/articles/s41598-024-78832-2
+      \endverb
+      \verb{url}
+      \verb https://www.nature.com/articles/s41598-024-78832-2
+      \endverb
+    \endentry
+    \entry{neisen_supervisory_2018}{article}{}
+      \name{author}{3}{}{%
+        {{hash=5b9fa975e5568270f4b242e4b76303a4}{%
+           family={Neisen},
+           familyi={N\bibinitperiod},
+           given={Verena},
+           giveni={V\bibinitperiod}}}%
+        {{hash=83a1b23628a77ce86aa58edecd5a1501}{%
+           family={Baader},
+           familyi={B\bibinitperiod},
+           given={Florian\bibnamedelima Joseph},
+           giveni={F\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=9a1f018da759410b77530aa0102eb225}{%
+           family={Abel},
+           familyi={A\bibinitperiod},
+           given={Dirk},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{41850e6e3c0f4fb7f2b9c51937e5600b}
+      \strng{fullhash}{41850e6e3c0f4fb7f2b9c51937e5600b}
+      \strng{bibnamehash}{41850e6e3c0f4fb7f2b9c51937e5600b}
+      \strng{authorbibnamehash}{41850e6e3c0f4fb7f2b9c51937e5600b}
+      \strng{authornamehash}{41850e6e3c0f4fb7f2b9c51937e5600b}
+      \strng{authorfullhash}{41850e6e3c0f4fb7f2b9c51937e5600b}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{24058963}
+      \field{journaltitle}{{IFAC}-{PapersOnLine}}
+      \field{langid}{english}
+      \field{number}{32}
+      \field{shortjournal}{{IFAC}-{PapersOnLine}}
+      \field{title}{Supervisory Model-based Control using Mixed Integer Optimization for stationary hybrid fuel cell systems}
+      \field{urlday}{12}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{volume}{51}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{320\bibrangedash 325}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1016/j.ifacol.2018.11.403
+      \endverb
+      \verb{urlraw}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S2405896318331008
+      \endverb
+      \verb{url}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S2405896318331008
+      \endverb
+    \endentry
+    \entry{goli_pv_2014}{article}{}
+      \name{author}{2}{}{%
+        {{hash=ebea8dda7cbe6fb24964965e1d46f1e2}{%
+           family={Goli},
+           familyi={G\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=e171e40974b65e439fff94ae887f67d1}{%
+           family={Shireen},
+           familyi={S\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{234517bca1dd8cf93936a1fc06dbee7e}
+      \strng{fullhash}{234517bca1dd8cf93936a1fc06dbee7e}
+      \strng{bibnamehash}{234517bca1dd8cf93936a1fc06dbee7e}
+      \strng{authorbibnamehash}{234517bca1dd8cf93936a1fc06dbee7e}
+      \strng{authornamehash}{234517bca1dd8cf93936a1fc06dbee7e}
+      \strng{authorfullhash}{234517bca1dd8cf93936a1fc06dbee7e}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{09601481}
+      \field{journaltitle}{Renewable Energy}
+      \field{langid}{english}
+      \field{month}{6}
+      \field{shortjournal}{Renewable Energy}
+      \field{title}{{PV} powered smart charging station for {PHEVs}}
+      \field{urlday}{24}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{volume}{66}
+      \field{year}{2014}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{280\bibrangedash 287}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1016/j.renene.2013.11.066
+      \endverb
+      \verb{urlraw}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S096014811300654X
+      \endverb
+      \verb{url}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S096014811300654X
+      \endverb
+    \endentry
+    \entry{Sunman-PVmodule}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=586487844c67f1e395b6ffc59eafa2fb}{%
+           family={{Sunman-energy}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{586487844c67f1e395b6ffc59eafa2fb}
+      \strng{fullhash}{586487844c67f1e395b6ffc59eafa2fb}
+      \strng{bibnamehash}{586487844c67f1e395b6ffc59eafa2fb}
+      \strng{authorbibnamehash}{586487844c67f1e395b6ffc59eafa2fb}
+      \strng{authornamehash}{586487844c67f1e395b6ffc59eafa2fb}
+      \strng{authorfullhash}{586487844c67f1e395b6ffc59eafa2fb}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.sunman-energy.com/download}}
+      \field{note}{Datenblatt, Zugriff am \today}
+      \field{title}{Sunman eArc SMF520J-12X12UW (520 Wp) Datenblatt}
+      \field{year}{2025}
+    \endentry
+    \entry{Unterkonstruktion}{misc}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://venturama-solar.de/produkt/pv-montageschiene-typ-1-standard-1_3mm-aluprofil-40x40/}}
+      \field{note}{Website, Zugriff am \today}
+      \field{title}{Unterkonstruktion, Venturama-solar}
+      \field{year}{2026}
+    \endentry
+    \entry{FC-katalog}{misc}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.horizoneducational.com/h-1000-pem-fuel-cell-1kw/p1355}}
+      \field{note}{Produkt-Katalog, Zugriff am \today}
+      \field{title}{Brennstoffzelle, H-1000 Horizon-Educational}
+      \field{year}{2026}
+    \endentry
+    \entry{TankH2}{misc}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://shop.spectronik.com/carbon-fiber-cylinder/20l-typeiii-carbon-fiber-cylinder}}
+      \field{note}{Produkt-Katalog, Zugriff am \today}
+      \field{title}{Wasserstofftank, Spektronik}
+      \field{year}{2026}
+    \endentry
+    \entry{battery}{misc}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.lifepo.shop/product-page/8000-zyklen-eve-mb31-lifepo4-3-2-v-batteriezelle-grade-a-v3?utm_source=google&utm_medium=wix_google_feed&utm_campaign=freelistings&utm_source=google-ads&utm_campaign=&utm_agid=&utm_term=&creative=&device=c&placement=&gad_source=1&gad_campaignid=23145037346&gclid=CjwKCAiAwNDMBhBfEiwAd7ti1Jdjo0RSO-z6cNuaijtkNzBhfPx80tb6Yzw1FhKhw128eZwAGWqL8BoCv14QAvD_BwE}}
+      \field{note}{Website, Zugriff am \today}
+      \field{title}{Batterie, EVE MB31}
+      \field{year}{2026}
+    \endentry
+    \entry{laderegler}{misc}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.reichelt.de/de/de/shop/produkt/solar_laderegler_bluesolar_mppt_100_20-377553?PROVID=2788&gad_source=1&gad_campaignid=19009429421&gclid=CjwKCAiAv5bMBhAIEiwAqP9GuHTDLPliOQV--tp1YgZN0zoufBq-iySH92t3JLZGrFy-2919etKX_BoCd2gQAvD_BwE}}
+      \field{note}{Website, Zugriff am \today}
+      \field{title}{Laderegler, BlueSolar MPPT 100/20}
+      \field{year}{2026}
+    \endentry
+    \entry{friedrich2026_hybrid_energy}{online}{}
+      \name{author}{1}{}{%
+        {{hash=11174516682e08aa33a0b2ab8e950ac0}{%
+           family={Friedrich},
+           familyi={F\bibinitperiod},
+           given={Jonas},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{11174516682e08aa33a0b2ab8e950ac0}
+      \strng{fullhash}{11174516682e08aa33a0b2ab8e950ac0}
+      \strng{bibnamehash}{11174516682e08aa33a0b2ab8e950ac0}
+      \strng{authorbibnamehash}{11174516682e08aa33a0b2ab8e950ac0}
+      \strng{authornamehash}{11174516682e08aa33a0b2ab8e950ac0}
+      \strng{authorfullhash}{11174516682e08aa33a0b2ab8e950ac0}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{GitHub repository}
+      \field{title}{{hybrid-energy-concept-PV-H2-Bat-for-Field-Robot}}
+      \field{urlday}{25}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/jonasfriedrich1414/hybrid-energy-concept-PV-H2-Bat-for-Field-Robot
+      \endverb
+      \verb{url}
+      \verb https://github.com/jonasfriedrich1414/hybrid-energy-concept-PV-H2-Bat-for-Field-Robot
+      \endverb
+    \endentry
+    \entry{DWD2024Solar10min}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=f740bdc81fbf7ebfc222622771719545}{%
+           family={{Deutscher Wetterdienst (DWD)}},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{f740bdc81fbf7ebfc222622771719545}
+      \strng{fullhash}{f740bdc81fbf7ebfc222622771719545}
+      \strng{bibnamehash}{f740bdc81fbf7ebfc222622771719545}
+      \strng{authorbibnamehash}{f740bdc81fbf7ebfc222622771719545}
+      \strng{authornamehash}{f740bdc81fbf7ebfc222622771719545}
+      \strng{authorfullhash}{f740bdc81fbf7ebfc222622771719545}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/10_minutes/solar/}}
+      \field{note}{Accessed: 2026-03-05}
+      \field{title}{10-minute station observations of solar and sunshine for Germany}
+      \field{year}{2024}
+    \endentry
+    \entry{PVGIS}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=373bedacc16af2f4f2642eef09881c5a}{%
+           family={{European Commission, Joint Research Centre}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{373bedacc16af2f4f2642eef09881c5a}
+      \strng{fullhash}{373bedacc16af2f4f2642eef09881c5a}
+      \strng{bibnamehash}{373bedacc16af2f4f2642eef09881c5a}
+      \strng{authorbibnamehash}{373bedacc16af2f4f2642eef09881c5a}
+      \strng{authornamehash}{373bedacc16af2f4f2642eef09881c5a}
+      \strng{authorfullhash}{373bedacc16af2f4f2642eef09881c5a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://re.jrc.ec.europa.eu/pvg_tools/en/}}
+      \field{note}{Accessed: 2026-03-05}
+      \field{title}{PVGIS - Photovoltaic Geographical Information System}
+      \field{year}{2026}
+    \endentry
+    \entry{KTBL2017Gemuesebau}{book}{}
+      \name{author}{1}{}{%
+        {{hash=2136c13864976a9bad52d9e153922132}{%
+           family={{Kuratorium für Technik und Bauwesen in der Landwirtschaft (KTBL)}},
+           familyi={K\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Darmstadt}%
+      }
+      \list{publisher}{1}{%
+        {KTBL}%
+      }
+      \strng{namehash}{2136c13864976a9bad52d9e153922132}
+      \strng{fullhash}{2136c13864976a9bad52d9e153922132}
+      \strng{bibnamehash}{2136c13864976a9bad52d9e153922132}
+      \strng{authorbibnamehash}{2136c13864976a9bad52d9e153922132}
+      \strng{authornamehash}{2136c13864976a9bad52d9e153922132}
+      \strng{authorfullhash}{2136c13864976a9bad52d9e153922132}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-945088-41-8}
+      \field{note}{Bestell-Nr. 19521}
+      \field{title}{Gemüsebau: Freiland und Gewächshaus}
+      \field{urlday}{23}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.ktbl.de/shop/produktkatalog/19521
+      \endverb
+      \verb{url}
+      \verb https://www.ktbl.de/shop/produktkatalog/19521
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

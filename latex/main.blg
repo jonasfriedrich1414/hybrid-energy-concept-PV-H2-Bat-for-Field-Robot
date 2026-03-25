@@ -1,0 +1,23 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'main.blg'
+[47] biber:340> INFO - === Wed Mar 25, 2026, 14:15:07
+[61] Biber.pm:419> INFO - Reading 'main.bcf'
+[100] Biber.pm:979> INFO - Found 22 citekeys in bib section 0
+[112] Biber.pm:4419> INFO - Processing section 0
+[118] Biber.pm:4610> INFO - Looking for bibtex file 'Bibliography.bib' for section 0
+[119] bibtex.pm:1713> INFO - LaTeX decoding ...
+[127] bibtex.pm:1519> INFO - Found BibTeX data source 'Bibliography.bib'
+[175] Biber.pm:4610> INFO - Looking for bibtex file 'My Library.bib' for section 0
+[176] bibtex.pm:1713> INFO - LaTeX decoding ...
+[190] bibtex.pm:1519> INFO - Found BibTeX data source 'My Library.bib'
+[228] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[228] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[228] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'de-DE'
+[228] Biber.pm:4245> INFO - No sort tailoring available for locale 'de-DE'
+[237] bbl.pm:660> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[241] bbl.pm:763> INFO - Output to main.bbl
+[241] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_jgVu/d8dddbe32000187f5d36edf5881fa0cc_234665.utf8, line 12, warning: 132 characters of junk seen at toplevel
+[241] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_jgVu/d8dddbe32000187f5d36edf5881fa0cc_234665.utf8, line 24, warning: 64 characters of junk seen at toplevel
+[241] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_jgVu/d8dddbe32000187f5d36edf5881fa0cc_234665.utf8, line 41, warning: 153 characters of junk seen at toplevel
+[241] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_jgVu/d8dddbe32000187f5d36edf5881fa0cc_234665.utf8, line 62, warning: 223 characters of junk seen at toplevel
+[241] Biber.pm:133> INFO - WARNINGS: 4

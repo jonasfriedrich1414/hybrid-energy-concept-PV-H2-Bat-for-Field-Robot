@@ -1,0 +1,404 @@
+\clearpage
+\section{Experimente}
+In diesem Kapitel werden die Ergebnisse der Bachelorarbeit präsentiert und erörtert. Zu Beginn stehen die Solarstrahlungsdaten im Fokus. Der Schwerpunkt liegt hierbei auf der Beurteilung der Regelmäßigkeit der Stromversorgung durch PV. Ebenso wird die Relevanz der Ausrichtung der PV-Module bewertet. Im nächsten Abschnitt werden die Messwerte des Energiebedarfs des Feldroboters beschrieben und diskutiert. Damit sind die Zeitreihen der Eingaben in die Simulation hinreichend betrachtet. In den darauffolgenden Abschnitten wird anhand einer einzelnen Zeitreihe geprüft, ob das Modell sinnvoll ist, und gleichzeitig wird die Logik der Regelung veranschaulicht. Anschließend werden die Ergebnisse der Simulation über mehrere Zeitreihen statistisch betrachtet. Die Ergebnisse der Pareto-Optimierung ermöglichen eine Bewertung, in welchen Fällen sich welches Energiesystem lohnt. Auf Basis dieser Erkenntnisse werden in den letzten drei Abschnitten drei Auslegungsmöglichkeiten des Energiesystems hinsichtlich der Optimierungsparameter Auslastung und Gewicht analysiert.
+
+\subsection{Analyse der historischen Solarstrahlungsdaten} \label{strahlung}
+In diesem Abschnitt wird die Regelmäßigkeit der Stromversorgung durch PV beurteilt und die Relevanz der Ausrichtung der PV-Module bewertet, um die Verwendung horizontaler Strahlungsdaten im Modell zu rechtfertigen.
+
+
+\begin{figure}[t]
+    \centering
+
+    % Erste Reihe
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Histogramm_year.pdf}
+        \caption{Häufigkeit der Global, Diffus und Direktstahlung über 10 Jahre}
+        \label{fig:histyear}
+    \end{subfigure}
+    % \hfill
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Hist_Globalstrahlung.pdf}
+        \caption{Häufigkeit der Globalstrahlung über zehn Jahre für eine ausgewählte Woche im Winter, Frühling und Sommer.}
+        \label{fig:Histweekglobal}
+    \end{subfigure}
+
+
+    % Kleine vertikale Lücke zwischen den Reihen
+    % \vskip 0.5cm
+
+    % Zweite Reihe
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Hist_DirektStrahlung.pdf}
+        \caption{Häufigkeit der Direktstahlung über zehn Jahre für eine ausgewählte Woche im Winter, Frühling und Sommer.}
+        \label{fig:histweekdirect}
+    \end{subfigure}
+    % \hfill
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Hist_Diffusstrahlung.pdf}
+        \caption{Häufigkeit der Diffusstrahlung über zehn Jahre für eine ausgewählte Woche im Winter, Frühling und Sommer.}
+        \label{fig:Histweekdiffuse}
+    \end{subfigure}
+
+    \caption{Histogramme der Solarstrahlung für verschiedene Zeitintervalle, zum visuellen prüfen auf Normalverteilung.}
+    \label{fig:2x2histograms}
+\end{figure}
+
+
+
+\subsubsection{Statistische Betrachtung} \label{stats}
+Um die Sicherheit der Energieversorgung durch PV einschätzen zu können, werden die Solarstrahlungsdaten mithilfe eines Shapiro-Wilk-Hypothesentests auf Normalverteilung geprüft. Bei dem Ergebnis „Normalverteilung” kann die Unsicherheit der Energieversorgung durch die erste und zweite Standardabweichung eingeschätzt werden. Bei nicht normalverteilten Daten wird die Unsicherheit der Energieversorgung durch die Interquartilsabstände (IQR) und die Minimalwerte angegeben, da die Zuordnung von Wahrscheinlichkeiten zur Standardabweichung nur für die Normalverteilung definiert ist. Bei einem Hypothesentest wird die Hypothese bei einem p-Wert von kleiner 0,05 verworfen. Ein Wert größer als 0,05 bedeutet jedoch nicht, dass die Hypothese bewiesen ist, sondern lediglich, dass sie nicht verworfen wird. Die zu prüfende Hypothese lautet: „Die Solarstrahlungsdaten sind normalverteilt.” Es werden nur Tagessummen der Solarstrahlungsdaten verwendet, und optional mit den Umgebenden 3, 7 oder 21 Tagen gemittelt um die Versorgungssicherheit bei längeren Arbeitsaufträgen darzustellen. Als Daten wurden zehnjährige Solarstrahlungsdaten des Deutschen Wetterdienstes (DWD) genutzt \cite{DWD2024Solar10min}. Wenn Daten von einem spezifischen Tag gezogen werden, so entspricht dies nur zehn Datenpunkten. Um statistisch bessere Aussagen treffen zu können, wird deshalb immer die gesamte umliegende Woche ohne Mittelung gezogen, sodass sich die Anzahl der Datenpunkte auf 70 erhöht. Dies basiert auf der Annahme, dass sich Wetterphänomene nicht wochengenau wiederholen. Eine andere Möglichkeit, die Anzahl der Datenpunkte zu erhöhen, wäre die Verwendung eines längeren Zeitraums historischer Daten. Aufgrund langfristiger Klimatrends können diese jedoch nur mit Vorsicht für eine Analyse des aktuellen Zustands verwendet werden, weshalb darauf verzichtet wurde.
+
+\paragraph{Ergebnisse}
+Abbildung \ref{fig:histyear} zeigt die Häufigkeit der Tagessummen über den Zeitraum eines ganzen Jahres, aufgeteilt in die Strahlungskomponenten diffuse und direkte Strahlung sowie Globalstrahlung, die sich aus beiden Komponenten zusammensetzt. Die Verteilung der Direktstrahlung weicht deutlich von der der Diffusstrahlung ab. Die Direktstrahlung variert stark von 0 bis 7 kwh pro Tag, wobei die Häufigkeit schwacher Direktstrahlung deutlich überwiegt. Die Diffusstrahlung mit einem Bereich von 0 bis 4 kwh ist deutlich gleichmäßiger verteilt.
+Abbildung \ref{fig:Histweekglobal} bis \ref{fig:Histweekdiffuse} zeigen die Häufigkeit der Tagessummen ausgewählter Wochen im Jahr und beziehen so die Saisonalität mit ein. Der angegebene Tag im Jahr ist der mittlere Tag dieser Woche. Die Tage 0, 90 und 180 entsprechen demnach einer Woche im Winter, Frühling und Sommer. Abbildung \ref{fig:Histweekglobal} zeigt die Globalstrahlung. Hier ist eine schiefe Verteilung erkennbar, die deutlich von der Normalverteilung abweicht. Die Direktstrahlung in Abbildung \ref{fig:histweekdirect} scheint im Frühling und Sommer breit gestreut zu sein. Im Winter gibt es eine breite Streuung mit einem Peak bei sehr schwacher Direktstrahlung. Die Diffusstrahlung in Abbildung \ref{fig:Histweekdiffuse} hingegen könnte normalverteilt zu sein. \\
+Für jeden Tag im Jahr wurde die umgebende Woche mittels des Shapiro-Wilk-Hypothesentests auf Normalverteilung geprüft. Die p-Werte sind in Abbildung \ref{fig:p-Wert_overview} dargestellt. Abbildung \ref{fig:p-Wert_chronologisch} zeigt die p-Werte chronologisch übers Jahr. Über einem p-Wert von 0,05 kann die Nullhypothese einer Normalverteilung nicht wiederlegt werden. Mit einem Mittelwert von 0,3046 liegt die Diffusstrahlung deutlich darüber. Da bei den p-Werten der Diffusstrahlung keine erhebliche Saisonalität erkennbar ist, wurden die Tage im Jahr in Abbildung \ref{fig:p-Wert_sortiert} nach aufsteigendem p-Wert sortiert. Ebenso wurde eine gleich große Anzahl normalverteilter Zahlen gezogen und in Rot als Vergleichswert dargestellt. Deutlich erkennbar ist, dass die p-Werte, die aus dem experimentellen Ziehen aus einer Normalverteilung resultieren, die gleichen Schwankungen aufweisen wie die p-Werte aus der Diffusstrahlung mit dem erwarteten Mittelwert von p = 0,5. Die p-Werte der Diffusstrahlung liegen mit einem Mittelwert von 0,3046 deutlich über 0,05, wodurch die Nullhypothese nicht verworfen werden kann. Es gibt in den Daten der Diffusstrahlung also keinen Hinweis gegen eine Normalverteilung. 
+\begin{figure}[t]
+    \centering
+    % Erste Reihe
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{p-Wert_chronologisch.pdf}
+        \caption{p-Werte chronologisch übers Jahr}
+        \label{fig:p-Wert_chronologisch}
+    \end{subfigure}
+    %\hfill
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{p-Wert_sortiert.pdf}
+        \caption{p-Werte sortiert übers Jahr. Zum Vergleich p-Werte vom ziehen aus einer Normalverteilung}
+        \label{fig:p-Wert_sortiert}
+    \end{subfigure}
+    \caption{Shapiro-Wilk Test zum Hypthesentest auf Normalverteilung. Bei p-Werten unter 0,05 muss die Annahme einer Normalverteilung verworfen werden. Dies trifft auf die Global- und Direktstrahlung zu. Bei der Diffusstrahlung kann die Normalverteilung hingegen nicht verworfen werden. Daraus ergibt sich, dass die Energieversorgungwahrscheinlichkeiten durch die Globalstrahlung nicht mit Standardabweichungen angegeben werden können.}
+    \label{fig:p-Wert_overview}
+\end{figure}
+Bei der Direktstrahlung liegt der mittlere p-Wert jedoch bei 0,0045, was deutlich unter 0,05 ist. Daher wird die Nullhypothese „Die Daten stammen aus einer Normalverteilung” verworfen. Da die Globalstrahlung eine Summe aus beiden ist, liegt der mittlere p-Wert wie erwartet zwischen den p-Werten von Diffus- und Direktstrahlung mit einem Wert von 0,037, was bereits ein Hinweis gegen eine Normalverteilung ist. Somit wird auch bei der Globalstrahlung die Nullhypothese einer Normalverteilung verworfen. Deshalb ist eine Analyse der Solardaten mit Mittelwert und Standardabweichung nicht sinnvoll. Abbildung \ref{fig:Tagessummen_Median} stellt daher Median und Interquartilsabstände (IQR) dar. Die Mediane in Abbildung \ref{fig:Tagessummen_Median} sind über die Jahre gebildet. Innerhalb eines Jahres wird jedoch zunächst der Mittelwert über die Tagessummen von drei, sieben und 21 Tagen Globalstrahlung gebildet, um zu untersuchen, wie sich Unsicherheit der PV Stromversorgung bei längerem Betrieb des Feldroboters verhält. Je länger der betrachtete Zeitintervall für die Tagessummenmittelung, desto stärker glättet sich die Mediankurve übers Jahr und desto kleiner wird die IQR-Box. Die IQR-Box stellt den gefüllten Bereich dar, in dem 50 \% der Datenpunkte liegen. 25 \% der Datenpunkte liegen demnach unterhalb bzw. oberhalb der Box. \\
+Werden die Minimalwerte der Solarstrahlungs-Tagessummen von drei, sieben und 21 Tagen betrachtet, so entsteht ein sehr verrauschtes Signal mit täglichen Schwankungen von über 25 \%. Da Schlechtwetterfronten zwar saisonabhängig, aber üblicherweise nicht tages- oder wochengenau im Jahr auftreten, wurde auf die verrauschten Minimalwerte ein gleitendes Fenster von 14 Tagen angewendet. Dieses bestimmt nach der Minimalwertbildung über die Jahre ebenfalls den Minimalwert in diesem 14-Tage-Fenster. Dadurch entsteht ein stufiges, deutlich rauschärmeres Signal. Dieses ist in Abbildung \ref{fig:Tagessummen_Median} gestrichelt dargestellt und stellt eine gute Annahme für den Strahlung dar, mit der man zu dieser Jahreszeit mindestens rechnen kann. \\
+Wird der Mittelwert der Strahlungssummen über einen längeren Zeitraum gebildet, so steigt die durchschnittliche Mindeststrahlung. \\ 
+Um die Saisonalität des Rauschens darzustellen wurde ebenfalls das Rausch-Signal-Verhältnis bestimmt, welches in Abbildung \ref{fig:Noise_Signal_Ratio} dargestellt ist. Da dies jedoch per Definition auf der Standardabweichung beruht soll dies nur Qualitativ zeigen, dass nicht nur die Absolute Sonneneinstrahlung in den Herbst und Wintermonaten geringer ist, sondern auch mehr Rauschen vorhanden ist.
+
+
+
+
+\begin{figure}[t]
+    \centering
+    % Erste Figur links
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{Tagessummen_Median_IQR.pdf}
+        \caption{Minimalwerte,Median, IQR der Tagessummen übers Jahr, gemittelt über den angegeben Zeitraum.}
+        \label{fig:Tagessummen_Median}
+    \end{minipage}
+    % Zweite Figur rechts
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{Noise-Signal-Ratio.pdf}
+        \caption{Rausch-Signal Verhältnis der Tagessummen übers Jahr, gemittelt über den angegeben Zeitraum}
+        \label{fig:Noise_Signal_Ratio}
+    \end{minipage}
+\end{figure}
+
+\paragraph{Diskussion}
+Da die Globalstrahlungsdaten nicht normalverteilt sind, wird die Energieversorgungssicherheit durch PV anhand der IQR-Box und der Minimalwerte betrachtet. Unabhängig von der Betriebsdauer eines Feldroboters liegt der zu erwartende Medianwert von Mitte April bis Ende August bei ca. 5 kWh pro Tag und m². Das erste Quartil bei dreitägigem Betrieb liegt ca. eine kWh unter dem Medianwert. Das bedeutet, dass bei drei tägigem Betrieb mit einer Wahrscheinlichkeit von 75~\% 80~\% des Medians an PV-Strom bereitgestellt werden kann. Bei sieben und 21 Tagen Betrieb wird die IQR-Box entsprechend schmaler, sodass bei 21 Tagen mit einer Wahrscheinlichkeit von 75~\% ein PV-Strom von ca. 90~\% des Medianwerts bereitgestellt werden kann. Allerdings gibt es Ausreißer mit Minimalwerten von 1,5 bis 3~kWh bei dreitägigem Betrieb. Bei 21 Tagen Betrieb liegen die Ausreißer zwischen 3 und 4,5~kWh, was eine erheblich höhere Energieversorgungssicherheit bedingt. Daraus lässt sich schließen, dass eine Versorgungssicherheit durch PV-Strom in Zeitfenstern von einer Woche oder weniger nicht gegeben ist. Für längere Zeitfenster von drei Wochen und mehr ist sie jedoch sehr wohl gegeben. Dies bedeutet, dass der Einsatzzweck und der Einsatzzeitpunkt des Feldroboters einen starken Einfluss auf das Energiesystem haben. Wenn ein Landwirt einen Feldroboter haben möchte, der zu einer bestimmten Zeit eine Aufgabe in einem engen Zeitfenster erledigt, ist ein reiner PV-Betrieb keine Option, da die Versorgungssicherheit in diesem Fall nicht gegeben ist. Wenn der Feldroboter jedoch über einen längeren Zeitraum hinweg die gleiche Aufgabe übernimmt und der Zeitpunkt dabei nicht allzu wichtig ist, kann eine Versorgungssicherheit in diesem Zeitraum durch PV-Strom gewährleistet werden. \\
+Wenn der Roboter beispielsweise drei Wochen lang zum Unkrautjäten auf dem Feld eingesetzt wird, kann davon ausgegangen werden, dass die PV-Module 75~\% des Medianwerts an Energie bereitgestellt haben. Mit einer Wahrscheinlichkeit von 75~\% wurden sogar 90~\% des Medianwerts bereitgestellt. Es sei jedoch angemerkt, dass diese Betrachtung von einer vollständigen Nutzung des PV-Stroms ausgeht. Dies hängt stark von der Dimensionierung des Energiesystems ab, weshalb die Simulation in späteren Abschnitten nötig ist.
+
+\subsubsection{Relevanz der PV-Modulausrichtung} \label{ausrichtung}
+
+\begin{figure}[!b]
+    \centering
+    % Erste Figur links
+    \begin{minipage}[t]{0.43\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Ausrichtung_Jahr.pdf}
+        \caption{Abweichung Globalstrahlungs Tagessummen der Ost-West 15° Ausrichtung von der horizontalen Ausrichtung}
+        \label{fig:Ausrichtung_Jahr}
+    \end{minipage}
+    \hfill
+    % Zweite Figur rechts
+    \begin{minipage}[t]{0.55\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Ausrichtung_Tagesgang.pdf}
+        \caption{Vergleich zweier sonniger Tagesgänge am 27 März 2013 und 8 Juli 2013 für unterschiedlche Ausrichtungen.}
+        \label{fig:Ausrichtung_Tag}
+    \end{minipage}
+\end{figure}
+
+
+In diesem Abschnitt wird gezeigt, dass eine horizontale Ausrichtung der PV-Module eine ähnlichen PV-Ertrag liefert wie eine Ost-West Dach Ausrichtung mit 15° Neigung. Dies ist relevant da in der Simulation horizontale Daten vom DWD \cite{DWD2024Solar10min} verwendet werden, in realität aufgrund selbstreinigender Effekte jedoch eine Dachform umgesetzt wird. PVGIS \cite{PVGIS} stellt stündliche PV-Daten mit benutzerdefinierter Angabe von Modulausrichtung und -neigung zur Verfügung. Als Ort wurde Krefeld ausgewählt und der Standardverlust von 14 \% akzeptiert. Da sich der Feldroboter frei drehen kann, wäre auch eine Nord-Süd-Ausrichtung interessant, die von PV-GIS jedoch nicht unterstützt wird. 
+
+\paragraph{Ergebnisse}
+Die Jahressummen betragen für eine 1-kWp-Anlage, gemittelt über elf Jahre von 2013 bis 2023, 872 kWh für die horizontale Ausrichtung.  Für die Ost-West-Ausrichtung bei 15° betragen sie 866 bzw. 855 kWh und bei 35° 836 bzw. 815 kWh. Eine reine Südausrichtung ohne Berücksichtigung der Dachform bei optimalen 40° liefert im Mittel 1.049 kWh im Jahr. Demnach erzeugt eine Ost-West-Ausrichtung 11,5 kWh weniger im Jahr als eine horizontale Ausrichtung. Dies entspricht 1,3 \% der horizontalen Ausrichtung. \\
+Abbildung \ref{fig:Ausrichtung_Jahr} zeigt, dass die Tagessummen der Ost-West Ausrichtung im Sommer ca. 2 \% geringer und im Winterhalbjahr 0 bis 2 \% höher sind als die der horizontale Ausrichtung . Die Regression durch die Datenpunkte entspricht einer Mittelwertbildung über zwei Wochen.
+Abbildung \ref{fig:Ausrichtung_Tag} zeigt den typischen Tagesgang an einem sonnigen Tag im Frühling und Sommer. Zwischen der horizontalen Ausrichtung und der Ost-West-Ausrichtung sind nur marginale Unterschiede erkennbar. Diese bestehen weniger in der Tagessumme als in einem leicht breiteren, aber flacheren Tagesgang. Dies ist typisch für Ost-West-Dächer und lässt sich durch die Unterschiede des Schattenwurfs leicht nachvollziehen. Zum Vergleich ist die reine Südausrichtung bei 40° Neigung dargestellt, die aufgrund der starken Neigung höhere Tagessummen im Frühling als im Sommer erzielt. 
+
+
+
+
+\paragraph{Diskussion}
+Da eine Ost-West-Ausrichtung im Jahr nur 1,3 \% weniger Strom erzeugt als eine horizontale Ausrichtung und der Tagesgang sowohl im Frühling als auch im Sommer nur marginale Unterschiede aufweist, fließen die hochauflösenden, horizontalen Daten vom DWD \cite{DWD2024Solar10min} in die Simulation ein. Dadurch wird das Tracken der Sonne und das Festlegen von Routen auf dem Feld überflüssig.
+Ein relevanter Unterschied zur horizontalen oder Ost-West-15° Ausrichtung mit ca. 872 kWh jährlich wäre jedoch eine reine Südausrichtung, welche mit 1049kWh im Jahr 20,3~\% mehr kWh Strom erzeugt als die horizontale Ausrichtung. Ohne ein zweites PV-Modul nach Norden ausrichten zu müssen, erscheint eine sinnvolle Anbringung jedoch schwierig. Auch eine ein- oder zweiachsige Sonnennachführung der PV-Fläche wäre denkbar, welche die 1049 kWh einer Südausrichtung nocheinmal überschreiten würde. Dies geht jedoch mit einer Erhöhung der Freiheitsgrade und somit mit massiveren und schwereren Bauteilen einher, um die Stabilität zu gewährleisten.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Analyse der Messwerte des Energiebedarfs} \label{messwerte}
+\paragraph{Ergebnisse}
+\begin{figure}[!b]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Messwerte_Aplamo.png}
+    \caption{Strom Messwerte des Feldroboters DAVEGI mobile auf unterschiedlchen Untergründen.}
+    \label{fig:Messwerte-Aplamo}
+\end{figure}
+
+
+
+Um den Energieverbrauch des Feldroboters zu ermitteln, wurde, wie in der Methodik beschrieben, mittels eines Shunts der Strom an der Batterie gemessen und mit 50~V multipliziert, um die Leistung zu erhalten. Messung 1 wurde auf einem matschigen, mit Gras bewachsenen Seitenstreifen eines Ackers durchgeführt. Da die Motoren mit 5 kW deutlich zu stark ausgelegt sind, wurde eine Leistungsbegrenzung des Motorreglers von 3 \% eingestellt. Der Feldroboter wurde mithilfe einer Fernbedienung auf Schrittgeschwindigkeit eingestellt. Es ergibt sich ein stark variierendes Leistungsignal, wie in Abbildung \ref{fig:Messwerte-Aplamo} dargestellt, mit einem Mittelwert von 8,0 Ampere. Die Spannung wurde nicht gemessen, kann bei einer Nennspannung von 48~V aber gut auf 50~V geschätzt werden. Dies ergibt eine mittlere Leistung von 400 W. In die Simulation geht jedoch die Zeitreihe direkt ein, wobei abhängig von der zeitlichen Auflösung integralerhaltend interpoliert wird. Die gemessene Leistungsspitze beträgt 963 W. Die Messwerte der Roboterhände, siehe Abbildung \ref{fig:Messwerte-Hands}, haben mit einem Mittelwert von 24,6 W eine deutlich geringere Leistung, erreichen aber Leistungsspitzen von 50,6 W. Die Auflösung der Werte beträgt jedoch nur ein Achtel einer Sekunde, weshalb die Leistungsspitzen beim Beschleunigen nicht in den Messdaten vorhanden sind.
+
+\begin{figure}
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Messdaten_Hands.pdf}
+        \caption{Leistungsmesswerte zweier aktiver Roboterarme, Open-Arm}
+        \label{fig:Messwerte-Hands}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{openarm.png}
+        \caption{Aufnahme der Leistungsmesswerte mittels Netzgerät und Teleoperation}
+        \label{fig:Bild-Hands}
+    \end{minipage}
+\end{figure}
+
+
+\paragraph{Diskussion}
+Beides zusammen ergibt eine Leistung von ca. 450 W für Messung 1.
+Messung 2 und 3 wurden als Referenz aufgenommen, um beurteilen zu können, ob die Annahme der Umgebungsbedingungen in Messung 1 konservativ ist und inwiefern sich optimierte Umgebungsbedingungen auf den Leistungsbedarf auswirken. Es ist kein erheblicher Unterschied zu Messung 3 erkennbar, die auf einem matschigen, abgeernteten Maisacker durchgeführt wurde. Zu Messung 2 besteht allerdings ein großer Unterschied. Diese wurde auf einem holprigen, geteerten Weg durchgeführt und zeigt deutlich reduzierten Stromverbrauch. Der Untergrund und insbesondere die Feuchte des Ackers ist somit sehr relevant für den Leistungsbedarf. Durch die Bodenverdichtung und das leichte Einsinken des Roboters im Acker entsteht ein hoher Widerstand. Üblicherweise nimmt die Feuchtigkeit eines Ackers im Sommer deutlich ab, weshalb von einem geringeren Leistungsbedarf ausgegangen werden kann. In Messung 2 ist außerdem zu erkennen, dass die Geschwindigkeit ebenfalls einen großen Einfluss auf den Leistungsbedarf hat. Dies ist jedoch nicht so entscheidend wie ein fester Untergrund. Es lässt sich festhalten, dass 450 W eine konservative Annahme für den Feldroboter darstellen. Ein Acker mit geringer Bodenfeuchte war zum Zeitpunkt der Bachelorarbeit leider nicht auffindbar. Um die Leistungsspitzen von ca. 1 kW abzudecken, sollte eine 1 kWh-Batterie ausreichen. \\
+Die Saisonalität des Energiebedarfs des Feldroboters kann zum Zeitpunkt der Bachelorarbeit nicht festgestellt werden, da dies einer regelmäßigen Datenaufnahme des Energieverbrauchs des Feldroboters übers Jahr bedarf. Es kann Qualitativ abgeschätzt werden, dass an den Saisongrenzen aufgrund der höheren Bodenfeuchte der Energieverbrauch pro zureckgelegter Strecke höher ist. Wie viele Feldüberfahrten zu welcher Zeit nötig sind kann jedoch noch nicht abgeschätzt werden, da zu der jetztigen Forschungsphase noch nicht klar ist welche Aufgabe der Fledroboter übernehmen kann. \\
+
+\paragraph{Saisonalität der Aufgaben} Beim ökologischen Produktionsverfahren von Möhren für den Frischmarkt im Dammbau wird ab April Kalk gestreut, das Feld wird gepflügt und mit der Kreiselegge bearbeitet. Anschließend wird es mit einer Dammfräse gefräst und das aufkeimende Unkraut zweimal flächig abgeflammt, bevor die Möhren ausgesät werden. Da diese Arbeiten maschinell erfolgen, wird die Summe aller Arbeiten bis Ende April mit nur 11,84 Stunden pro Hektar (h/ha) angegeben. Anfang Mai erfolgt das erste manuelle Jäten von Unkraut mit einem Beetflieger, welches mit 51,4 h/ha angegeben wird. Im Juni, Juli und September wird ebenfalls ein manuelles Unkrautjäten mit gleichem Arbeitszeitaufwand angegeben, wobei zahlreiche andere Aufgaben, unter anderem die Ernte, durch Maschinen erledigt werden. Die Aufgaben und Arbeitsstunden bei anderen Kulturen unterscheiden sich stark. Beim Kopfsalat beispielsweise beträgt die Erntezeit 294,13 h/ha, dafür muss das Unkraut nur einmal manuell bekämpft werden. \cite{KTBL2017Gemuesebau} \\
+
+Da nicht feststeht, welche Hand- bzw. Maschinenarbeiten vom Feldroboter übernommen werden sollen, kann die Saisonalität der Aufgaben und somit auch der Energiebedarf nicht abgeschätzt werden. Die Leistungsmessungen dienen deshalb der Bildung plausibler Annahmen.
+
+
+
+
+\subsection{Simulation einer einzelnen Zeitreihe}
+\paragraph{Ergebnisse}
+Abbildung \ref{fig:onetimeseries} zeigt den Simulationsverlauf einer einzelnen Zeitreihe Anfang Juni für eine feste Kombination aus zwei PV-Modulen je 2,7 $m^{2}$ Fläche, zwei Wasserstofftanks und einer 3 kWh-Batterie. Die orangefarbene Kurve stellt die gesamte Einstrahlung pro horizontalem Quadratmeter in kW dar, mit den üblichen 1.000 W/m² Peak um die Mittagszeit. Die Lastkurve ist nicht dargestellt. Die Residuallast, also Last minus PV-Produktion, ist grün dargestellt. Bei klarem Himmel geht diese jeden Mittag ins Negative. Das bedeutet, dass Überschussstrom vorhanden ist, mit dem die Batterie geladen werden kann. Der prozentuale Füllstand der Batterie ist lila dargestellt, die Leistung der Brennstoffzelle in kW braun. Deutlich erkennbar ist, wie sich die Batterie am ersten Tag mit sehr geringer Einstrahlung bis auf 10 \% entlädt. An diesem Punkt springt die Brennstoffzelle an, übernimmt die komplette Residuallast und läuft dann die ganze Nacht durch. Am nächsten Morgen schaltet sich die Brennstoffzelle aufgrund der geringen bzw. negativen Residuallast wieder ab. Die Batterie wird durch den Überschussstrom aufgeladen. Am nächsten Abend, bei etwa Stunde 35, schaltet sich die Brennstoffzelle ein, obwohl die Batterie noch voll ist. Dies dient dem nächtlichen Parallelbetrieb von Brennstoffzelle und Batterie. Am nächsten Morgen um die 45. Stunde herum ist die Batterie bei den vorher eingestellten 30 \% Restkapazität am Morgen angekommen. Über den Tag lädt sich die Batterie wieder voll auf und geht in der darauffolgenden Nacht erneut in den Parallelbetrieb mit der Brennstoffzelle über. In Rosa ist der Füllstand des Wasserstofftanks dargestellt. Dieser sinkt entsprechend der Leistung der Brennstoffzelle. 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\linewidth]{single-iteration_last-iteration.pdf}
+    \caption{Simulation einer einzelnen 3 Tägigen Zeitreihe Anfang Juni. Mit 2 PV Modulen, 2 Wasserstofftanks je 20L, und 3kwh Batterie}\clearpage
+    \label{fig:onetimeseries}
+\end{figure}
+\paragraph{Diskussion}
+Ein optimaler Betrieb ist daran feststellbar, dass die Kapazität der Batterie regelmäßig zu 100 \% bzw. zu 70 \% ausgenutzt wird. An sonnigen Junitagen ist dies bei den zwei PV-Modulen in Kombination mit einem 3 kWh Akku gegeben. Die Brennstoffzelle liefert nachts über einen längeren Zeitraum hinweg Strom mit mittlerer Leistung. Dies könnte noch etwas optimiert werden, indem die Brennstoffzelle etwas früher am Abend in den Parallelbetrieb übergeht. Allerdings sind nicht alle Tage im Jahr so sonnig wie im Juni und es gibt auch bewölkte Tage, wie der erste Tag der Zeitreihe zeigt. An diesem Tag operiert die Brennstoffzelle sicherlich nicht optimal. Zwischen Stunde 0 und 8 entleert sich die Batterie komplett bis auf die eingestellten 10 \%. Hier wäre eine Regelung mit Wettervorhersage sehr sinnvoll. Dann könnte die Brennstoffzelle an bewölkten Tagen einfach mit sehr geringer Leistung weiterlaufen. Dies ist ohne Wettervorhersage nicht umzusetzen, da sich der Himmel ja jeden Moment lichten könnte. Wenn die Batterie durch die Brennstoffzelle bereits geladen ist, kann der Sonnenstrom nicht gespeichert werden. Es wäre jedoch möglich, die Energie zu bestimmen, die maximal an diesem Tag noch von der Sonne kommen könnte, und die Brennstoffzelle dann so zu steuern, dass die Sonnenenergie gerade noch gespeichert werden kann. Für die Auslegung der Systemkomponenten ist dieser kleine Effizienz-Boost jedoch nicht entscheidend.
+
+% \subsection{Simulation über mehrere Zeitreihen und variable Systemkomponenten}
+\subsection{Simulation über mehrere Zeitreihen, Pareto-Optimierung}
+
+Nun wurde die oben dargestellte Simulation über mehrere Zeitreihen durchgeführt, die sich alle im gleichen Monat befinden, und der Mittelwert gebildet. Außerdem wurde die Simulation über die variablen Parameter PV-Fläche, Wasserstoff-Kapazität und Batterie-Kapazität iteriert.
+
+\paragraph{Ergebnisse}
+Die Ergebnisvektoren aus der Simulation sind fünfdimensional. Sie setzen sich aus den oben genannten drei Parametern sowie der zugehörigen Auslastung und dem Gewicht zusammen. Es bietet sich an, die Ergebnisvektoren als Punkte im Auslastungs-Gewichts-Raum darzustellen. Dies ist in Abbildung \ref{fig:paretoJuni} zu sehen. Hinter jedem Punkt liegt ein dreidimensionaler Vektor, der einer Kombination von Systemkomponenten entspricht. Die grüne Linie stellt die Pareto-Front dar, die alle anderen Punkte dominiert. Ebenso sind die Pareto-Fronten für den reinen PV-Betrieb und für den reinen Wasserstoffbetrieb eingezeichnet. Es sind die Simulationsergebnisse für vier Tankintervalle dargestellt. 3, 5, 7 und 10 Tage. Die Zeitreihen für die Simulation wurden aus dem Monat Juni gezogen.
+
+\begin{figure}[!t]
+    \centering
+    % Erste Reihe
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{3days_pareto-front.pdf}
+        \caption{Juni, Tankintervall 3 Tage}
+        \label{fig:pareto3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{5days_pareto-front.pdf}
+        \caption{Juni, Tankintervall 5 Tage}
+        \label{fig:pareto5}
+    \end{subfigure}
+
+    \par\medskip % <-- wichtig!
+
+    % Zweite Reihe
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{7days_pareto-front.pdf}
+        \caption{Juni, Tankintervall 7 Tage}
+        \label{fig:pareto7}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{10days_pareto-front.pdf}
+        \caption{Juni, Tankintervall 10 Tage}
+        \label{fig:pareto10}
+    \end{subfigure}
+    
+    \caption{Simulationsergebnisse im zu optimierenden Auslastungs-Gewichtsraum dargestellt bei 450W Last. Die Pareto-Front bildet das Set an sinnvollen Punkten. Bei kurzen Tankintervallen dominiert der reine H2-betrieb. Bei langen Tankintervallen dominiert der PV- und Hybridbetrieb. Batteriekapazität erhöht das Gewicht deutlich.}
+    \label{fig:paretoJuni}
+\end{figure}
+
+
+
+\paragraph{Diskussion}
+Abbildung \ref{fig:pareto10} zeigt die Pareto-Front für ein Tankintervall von zehn Tagen im Juni. Da der Juni ein sonniger Monat ist, werden hier die besten Autonomiegrade erwartet. Die H2-Batterie-Pareto-Front (rot) startet bei einem Gewicht von 6,25 kg, da dies der unteren Simulationsgrenze von 1 kWh Batterie ohne Brennstoffzelle und H2-Tank entspricht. Da die Energiedichte des Wasserstofftanks mit 2,2 kWh/kg selbst bei einem geringeren Wirkungsgrad deutlich höher ist als die einer Batterie mit 0,16 kWh/kg, entsprechen die nächsten Punkte der H2-Batterie-Pareto-Front einer linear anwachsenden Wasserstoffkapazität bei gleichbleibender Kapazität der Batterie von 1 kWh. Die Nicht-Differenzierbarkeit bei ca. 12,4 kg in der H2-Batterie-Pareto-Front entsteht durch das von der Wasserstoffkapazität unabhängige Gewicht der Brennstoffzelle, welche eine X-Achsen-Verschiebung bewirkt, sobald Wasserstoff genutzt wird. Bei ca. 40 kg sind die Randbedingungen für eine Wasserstoffkapazität von maximal 4 $\cdot$ 20 l erreicht. Um mehr Energie zu speichern und damit die Auslastung zu erhöhen, muss die Kapazität der Batterien erhöht werden. Dies geht jedoch aufgrund der geringen Energiedichte mit mehr Gewicht einher, was eine geringere Steigung im Auslastungs-Gewichts-Diagramm bewirkt. Bei ca. 85 kg sind ebenfalls die Randbedingungen für die maximale Kapazität der Batterien von 8 kWh erreicht. Alle Punkte unterhalb dieser Kurve sind Kombinationen, bei denen bereits vor Maximierung der Wasserstoffkapazität eine Erhöhung der Batteriekapazität vorgenommen wurde. Was im Anwendungsfall ohne PV keinen Sinn ergibt. \\
+
+Die PV-Batterie Pareto-Front (orange) startet mit geringem Gewicht am gleichen Punkt wie die H2-Pareto-Front, und das mit nur einer Batterie mit 1 kWh und 6,25 kg. Allerdings bleibt diese bis 18,75 kg unterhalb der H2-Pareto-Front. Dies liegt daran, dass ein PV-System mit den angenommenen Parametern mit diesem Gewicht noch nicht realisierbar ist, sodass die Kurve bis einschließlich 18,75 kg einem reinen Batteriebetrieb mit 1 bis 3 kWh Kapazität entspricht.
+Bei ca. 20 kg macht die Pareto-Kurve der PV-Batterie einen Sprung auf eine Auslastung von über 20~\%. Bei ca. 20 kg ist das Gewicht erreicht, welches ein PV-Modul mit einer 1 kWh-Batterie zulässt. Ein PV-Modul kann über einen Zeitraum von zehn Tagen deutlich mehr Strom produzieren als ein Wasserstoffsystem mit gleichem Gewicht. Am nächsten Punkt ändert sich die Auslastung kaum, da nur eine kWh-Batterie hinzugefügt wird, jedoch kein PV-Modul. Dann macht die PV-Batterie-Pareto-Front bei ca. 30 kg erneut einen Sprung auf eine Auslastung von ca. 42 \%, weil ein weiteres PV-Modul hinzugefügt wird. Zwei PV-Module stellen die obere Simulationsgrenze dar, da es an Platz mangelt. Der Rest der Kurve entsteht durch eine Erhöhung der Batteriekapazität, was aufgrund der geringen Energiedichte die Auslastung jedoch kaum erhöht. Es sei anzumerken, dass eine Erhöhung der Batteriekapazität von 1 auf 2 kWh bei zwei PV-Modulen die Auslastung stärker erhöht als eine Erhöhung von 2 auf 3 kWh. Dies liegt daran, dass bei zwei PV-Modulen an sonnigen Tagen die 1-kWh-Batterie nicht ausreicht, um den Überschussstrom zu speichern. Eine 2-kWh-Batterie reicht jedoch aus, was daran zu erkennen ist, dass die Steigung zu 3 kWh und mehr deutlich flacher ist. \\
+
+Die grüne Kurve beschreibt das Hybridsystem aus PV, H2 und Batterie. In diesem Fall folgt sie bei geringem Gewicht der H2-Batterie der Pareto-Front zwischen ca. 25 und 35 \% der PV-Batterie, der Pareto-Front und darüber hinaus einer Kombination aus maximaler PV-Fläche, 1 kWh Batterie und steigender Wasserstoffkapazität. Dies führt zu deutlich besseren Auslastungen, allerdings auch zu einem deutlich höheren Gewicht. Bei einem Gewicht von 70 kg können Auslastungen von über 80 \% erreicht werden. Dies bezieht sich jedoch nur auf spezielle feste Parameter. Die Parameter mit dem größten Einfluss sind hier noch einmal genannt. Das Zeitfenster (Monat), das Tankintervall und die Last. \\
+
+\begin{figure}[!b]
+    \centering
+    \includegraphics[width=0.6\linewidth]{10days_april_pareto-front.pdf}
+    \caption{Pareto Front im April mit 10 Tägigem Tankintervall. Im Vergleich zum Monat Juni sinkt die Auslastung für PV- und Hybridbetrieb. Wasserstoff ist wetterunabhängig.}
+    \label{fig:paretoapril}
+\end{figure}
+
+Ein kürzeres Tankintervall lässt erwarten, dass der reine Wasserstoffbetrieb dem reinen PV-Betrieb überlegen ist. 
+Dies ist in den Abbildungen \ref{fig:paretoJuni}, \ref{sub@fig:pareto3} bis \ref{sub@fig:pareto7} zu sehen. Bei einem Tankintervall von sieben Tagen liegt die H2-Batterie-Pareto-Front recht genau auf der PV-Batterie-Pareto-Front, sodass beide Systeme gleich gut dastehen. Reduziert man das Tankintervall weiter, so hebt sich der reine Wasserstoffbetrieb deutlich ab, sodass bei einem Tankintervall von drei Tagen und einem Systemgewicht von nur 30 kg eine Auslastung von 100 \% erreicht werden kann. Dies macht die Bereitschaft des Landwirts, den Feldroboter zu betanken, zu einer der wichtigsten Auslegungsentscheidungen. Ein reines PV-Batteriesystem kann im Juni auf eine Auslastung von ca. 42 \% kommen, ohne dass der Landwirt das Gerät betankt. Ist der Landwirt jedoch bereit, das Gerät alle drei Tage zu betanken, kann er eine volle Auslastung erreichen. \\
+
+Wird das Simulationsintervall auf den Monat April gesetzt, so ändert sich die Pareto-Front der H2-Batterie aufgrund ihrer Unabhängigkeit vom Wetter nicht. Allerdings reduziert sich die maximale Auslastung, da die PV-Leistung geringer ist. Ohne Wasserstoff liegt die mögliche Auslastung im April bei ca. 38 \%. Dies ist weniger als im Juni, wo sie bei ca. 42 \% liegt.
+
+\subsection{Reiner PV-Batterie Betrieb über das Jahr bei unterschiedlicher Last}
+Da die 42 und 38 \% bei einer konservativen Annahme von 450~W Last erreicht werden, lohnt es sich eine optimistischere Lastannahme einer 2/3-Last anzuschauen, da dies die Auslastung im reinen PV-Betrieb erhöhen sollte. Dafür wird die maximal mögliche PV-Fläche von ca. 5,4 m² gewählt und eine Batterieleistung von 1, 2, 3 und 4 kWh festgelegt, um den PV-Überschuss für die Nacht zu speichern. Es wird ein Zeitintervall von 14 Tagen festgelegt, wobei die Betankung keinen signifikanten Einfluss hat, da der Ladezustand der Batterie zu Beginn des Zeitintervalls auf 10 \% gesetzt wird. Die 2/3 Annahme der Last ist durchaus noch realitätsnah, da sie immer noch ca. doppelt so hoch ist wie die Last bei fahren auf einem holprigem geteerten Untergrund. Die Ergebnisse werden in Abbildung \ref{fig:onlypvmonthly} dargestellt. \\
+\paragraph{Ergebnisse}
+Auffallend ist, dass die Flanken der Auslastung über die Monate eine hohe Steigung aufweisen. Bis Mitte April steigt die Auslastung stark an und fällt ab Ende August wieder stark ab. Dazwischen liegt die reine PV-Batterie-Auslastung im konservativen 450-W-Fall bei ca. 40~\%, und steigt nicht wesentlich bei erhöhter Batteriekapazität. Bei zwei Dritteln der Last liegt sie jedoch bei über 55~\%, und steigt um 5 bis 8 Prozentpunkte an, wenn 2 bis 3 kWh Batteriekapazität verwendet wird.\\
+\paragraph{Diskussion}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{Only-PV-Auslastung.pdf}
+    \caption{Auslastung des Feldroboters übers Jahr bei reinem PV-Batterie betrieb mit 2 2,7 $m^{2}$ PV-Modulen, bei konservativ gewählter Last von 450W, und den optimistischeren 2/3 dieser Last.}
+    \label{fig:onlypvmonthly}
+\end{figure}
+Da die Auslastungskurven für eine 2 kWh-Batterie die Auslastungskurve für eine 1 kWh-Batterie bei 450 W Last nur leicht übersteigen und bei 3 und 4 kWh gar nicht mehr ansteigen, lässt sich ableiten, dass die meiste Energie der PV-Module direkt verbraucht und nicht zwischengespeichert wird. Bei 2/3 Last ist jedoch PV-Überschuss vorhanden, sodass eine höhere Batteriekapazität die Auslastung deutlich erhöht. Demnach ist die optimale Batteriegröße bei konstanter PV-Fläche wesentlich von der Last abhängig. Da die Last abhängig vom Untergrund und Anwendungszweck sich erheblich unterscheidet, bietet sich für den reinen PV-Batteriebetrieb eine modulare Batterie bei maximaler PV-Größe an. So könnte beispielsweise ein Array aus drei 1 kWh-Batterien verbaut werden, von denen man im hohen Lastfall oder auch am Rande der Saison mit geringerer Einstrahlung optional zwei entfernen kann, um das Gewicht zu reduzieren. Das Gewicht des Energiesystems des betrachteten Falls beträgt 30 kg für eine 1-kWh-Batterie plus 6,25 kWh für jede weitere kWh.
+Der Reine PV-Betrieb ist eine sinnvolle Option, wenn einige der folgenden Punkte zutreffen. \\
+\begin{itemize}
+    \item Ein H2-Auftanken wird vom Landwirt als äußerst lästig oder als Sicherheitsrisiko bewertet. Ein Automatisches H2-Auftanken ist nicht realisiert. 
+    \item Die reduzierte Auslastung erhöht die Amortisationszeit des Feldroboters nicht, beispielsweise aufgrund einer Preisverdopplung für einen Feldroboter bei Verwendung eines Wasserstoffsystems oder aufgrund einer Korrelation zwischen Arbeitsbedarf und Sonneneinstrahlung.
+    \item Die Aufgaben des Feldroboters müssen nicht an einem spezifischen Tag bzw. in einer bestimmten Woche erledigt werden. Dies ist aufgrund der unsicheren Stromversorgung durch PV relevant. 
+    \item Eine höhere Reichweite soll schnell und kostengünstig umgesetzt werden, ohne dass Mitarbeiterkapazitäten langfristig gebunden werden. Dies wäre bei einem Wasserstoffbetrieb, automatischem H2-Auftanken oder automatischem Batteriewechsel der Fall.
+\end{itemize}
+Das Energiesystem aus 2 PV-Modulen je 2,7 $m^{2}$ mit 960WP, einem Laderegler und einer kwh Batterie inklusive Unterkonstruktion hat ein Systemgewicht von ca. 30~kg und 6,25~kg für jede weitere kWh Batteriekapazität.
+
+\subsection{Reiner Wasserstoffbetrieb}
+Beim reinen Wasserstoffbetrieb kann die Simulation außer Acht gelassen werden, da sich die Reichweite proportional zur Wasserstoffkapazität verhält. Die Simulationsgrenze betrug vier 20-Liter-Wasserstofftanks bei 350 bar, was einem Heizwert von 4 $\cdot$ 16 kWh entspricht. Der Wirkungsgrad der Brennstoffzelle bei konstantem 450-W-Betrieb beträgt 62 \%, bezogen auf den Heizwert. Dem Antrieb stehen somit 39,68 kWh zur Verfügung. Dies reicht für ca. 88 Stunden Betrieb bzw. 3, $\frac{1}{2}$ Tage mit voller Auslastung bei einem Gewicht von 38,65 kg.  4 $\cdot$ 7 kg entfallen auf die Tanks, 4,4 kg auf die Brennstoffzelle und 6,25 kg auf die 1 kWh-Batterie. Ändert sich die Last, verändert sich die Reichweite von 88 Stunden antiproportional. Bei 2/3 Last wären dies 132 Stunden bzw. 5 $\frac{1}{2}$ Tage. Dies ist ein Tankintervall, das von Landwirten durchaus akzeptiert werden könnte, wobei der Preis und der Umgang mit Druckzylindern eine Herausforderung darstellen können. 
+Dafür kann der Feldroboter bei 100 \% Auslastung betrieben werden, was eine kürzere Amortisationszeit bewirken sollte.
+Ein reiner H2-Batterie Betrieb ist sinvoll wenn folgende Punkte zutreffen: \\
+\begin{itemize}
+    \item Ein Auftanken alle drei bis sechs Tage ist entweder automatisch möglich oder wird als nicht lästig und als kein Sicherheitsrisiko empfunden. (4 · 20 l, 40kg Systemgewicht)
+    \item Eine maximaler Auslastung wird als äußerst relevant eingestuft, beispielsweise aufgrund hoher Produktionskosten.
+    \item Der Einsatz des Feldroboters soll an speziellen Tagen oder Wochen erfolgen, ohne von Wetter abhängig zu sein.
+    \item Ein erhöhtes Zusatzgewicht von 30 kg für 2 PV-Module und Unterkonstruktion wird beispielsweise aufgrund von feuchten oder losen Böden die sich leicht verdichten lassen als kritisch angesehen.
+\end{itemize}
+Ein tägliches Auftanken reduziert den erforderlichen Wasserstoff auf 14,5 bis 22 Liter und senkt damit die Kosten für Wasserstofftanks deutlich, während gleichzeitig das Gewicht reduziert wird. Dies ist insbesondere interessant, wenn ein automatisches Auftanken umgesetzt wird. Dies ist die Auslegungsoption mit einem minimalen Gewicht von 18 kg bei einem 20-Liter-Wasserstofftank.
+
+
+
+
+\subsection{Kombinierter Betrieb von PV H2 und Batterie}
+Beim kombinierten Betrieb sind eine maximale PV-Fläche, die, wie bereits gezeigt, nicht überdimensioniert ist, sowie eine maximale Wasserstoffkapazität interessante Betrachtungspunkte. Dies entspricht 5,4 $m^2$ PV-Fläche und einer Wasserstoffkapazität von 64 kWh Heizwert. Als Batteriekapazität werden aufgrund der Erkenntnisse aus dem reinen PV-Betrieb nur 1, 2 und 3 kWh verglichen. Abbildung \ref{fig:h2pvmonthly} zeigt die Ergebnisse.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{H2-PV-Auslastung.pdf}
+    \caption{Auslastung des Feldroboters übers Jahr bei kombiniertem H2-PV-Batterie betrieb mit 2 2.7 $m^{2}$ PV-Modulen, 64 kwh H2 Heizwert und 14 Tage Tankintervall bei konservativ gewählter Last von 450W, und den optimistischeren 2/3 dieser Last.}
+    \label{fig:h2pvmonthly}
+\end{figure}
+Selbst bei einem Tankintervall von 14 Tagen steigt die Auslastung durch den Hybridbetrieb stark an, im Vergleich zum reinen PV-Betrieb. Dies entspricht einer Verschiebung der y-Achse um 0,25 Auslastungsunkte. Die relevante Darstellung ist jedoch die rechte Achse. Sie zeigt das Tankintervall, das nötig ist, um das Gerät bei voller Auslastung zu fahren. Im konservativen Fall von 450 W Last ist im Hybridbetrieb an den Grenzen der Saison eine Befüllung des Roboters alle fünf bis sechs Tage nötig. In den Sommermonaten erhöht sich aufgrund der Reichweitenverlängerung der PV-Module das Tankintervall auf acht bis zehn Tage. Bei einer geringeren Leistung von beispielsweise 2/3 von 450 W ist an den Saisongrenzen ein Tankintervall von 8 bis 10 Tagen möglich und in den Sommermonaten von 12 bis 14 Tagen. Dies geht jedoch mit einem Gewicht des Energiesystems von 62,4 kg bei einer 1-kWh-Batterie einher. Plus 6,25 kWh für jede weitere kWh.
+Ein H2-PV-Batterie Hybridbetrieb ist sinnvoll, wenn folgende Punkte zutreffen: \\
+\begin{itemize}
+    \item Ein Auftanken alle sechs bis 14 Tage wird entweder automatisch durchgeführt oder als nicht lästig und kein Sicherheitsrisiko empfunden. 
+    \item Eine maximaler Auslastung wird als äußerst relevant eingestuft, beispielsweise aufgrund hoher Produktionskosten.
+    \item Der Einsatz des Feldroboters soll an speziellen Tagen oder Wochen erfolgen, ohne von der Solarstrahlung abhängig zu sein.
+    \item Die erhöhte Reichweite von drei bis sechs auf sechs bis 14 Tage durch die PV-Module wird als relevanter angesehen, als das zusätzliche Gewicht von ca. 30 kg durch die PV-Module und die Unterkonstruktion.
+\end{itemize}
+Die in diesem Fall als optimal bewerteten Systemgrößen sind: 1000-W-Brennstoffzelle, 2 · 2,7 $m^{2}$
+PV-Fläche, 4 · 20 l H2-Tank und eine kWh Batteriekapazität, welches in 62,4~kg Systemgewicht resultiert. Ein automatisches auftanken würde eine geringere Tankgröße zulassen. Dies entspräche einem Gewicht von ca. 48~kg.
+
+\clearpage
+\section{Fazit}
+Ziel dieser Arbeit war es ein Energiesystem für den Feldroboter DAVEGI mobile mithilfe einer Computersimulation auszulegen, und anhand von Auslastung, Gewicht und Autarkie zu bewerten.
+Die vorliegende Arbeit zeigt, dass der Feldroboter mit einem PV-Batterie Energiesystem zumindest in den Sommermonaten autark arbeiten kann, wenn auch nicht bei voller Auslastung. Dies stützt die Idee eines autonomen, selbstständigen Feldroboters der ähnlich wie Saisonarbeitskräfte, nur zum Anlernen und zur Aufgabenpriorisierung mit dem Landwirt in Kontakt treten muss und ein hohes Maß an Selbstständigkeit aufweist. Da eine Auslastung von 50~\% vorraussichtlich mit einer langen Amortisationszeit einhergeht, ist jedoch ein H2-PV-Batterie-Hybridbetrieb vorgesehen. Es wurde gezeigt, dass dies die Auslastung bzw. die Reichweite deutlich erhöht, dafür ist jedoch ein Auftanken nötig. Dadurch ergibt sich eine Sichtweise auf das Energiesystems, bei der Wasserstoff der eigentliche Energieträger ist und die PV-Module wie bei solarelektrischen Automobilen lediglich zur Reichweitenverlängerung eingesetzt werden \cite{oluwalana_solar-powered-cars_2025}. Aufgrund der geringen verfügbaren PV-Fläche ist beim Feldroboter, wie auch beim Auto, eine Speicherform mit geringem Wirkungsgrad keine Option. Eine Betriebsweise, bei der die Brennstoffzelle als Grundlast bzw. mit träger Lastfolge agiert, die PV-Anlage als Reichweitenverlängerer dient und die Batterie für die hochfrequenten Spitzenströme verwendet wird, entspricht dem im Paper von Mingzhu Zhang \cite{zhang_energy_2024} beschriebenen Gedanken der Frequenzaufspaltung. Die PV-charakteristische Reichweitenverlängerung wurde durch die Analyse der Unsicherheit der Solarstrahlung bestätigt. Die Globalstrahlung ist nicht normalverteilt, sondern breit gestreut, was Außreißer mit geringer Leistung häufig macht und so eine unsichere PV-Stromversorgung bei kurzen betrachteten Zeiträumen bedingt. Bei längeren Zeiträumen von drei Wochen und mehr verringert sich die Unsicherheit der PV-Stromerzeugung jedoch deutlich, weshalb ein reiner PV-Betrieb für langfristige, nicht zeitpunktgebundene Aufgaben dennoch eine Option ist. \\
+
+Die Analyse mittels Pareto-Optimierung von Gewicht und Auslastung hat gezeigt, dass bei kurzen Tankintervallen ein kleiner Wasserstofftank in Kombination mit einer Brennstoffzelle und einer minimalen Batteriekapazität ein Systemgewicht von unter 18 kg bei voller Auslastung erreichen kann. Da dies jedoch mit hohem Tankaufwand einhergeht, ist ein automatisches Betanken ein relevantes Forschungsthema, das zu einem geringeren Gewicht führt. Ebenso kann durch einen automatischen Batteriewechsel ein geringes Gewicht erzielt werden. Die maximale Auslastung bei längeren Tankintervallen wird jedoch mit einem Hybridbetrieb von PV und Wasserstoff bei ebenfalls geringer Batteriekapazität erreicht. Dies geht mit einem Gewicht von 62 kg und mehr einher, kann die Betankintervalle jedoch auf sechs bis 14 Tage reduzieren. Dies ist insbesondere sinnvoll, wenn kein automatisches Betanken oder Batteriewechsel umgesetzt wird, aber dennoch eine hohe Auslastung aufgrund der Amortisationszeit gefordert wird. Sind die Produktionskosten des Feldroboters niedrig, ist ein reiner PV-Betrieb aufgrund der hohen Kosten für das Brennstoffzellensystem zu diesem Zeitpunkt unter Umständen mit einer ähnlichen Amortisationszeit verbunden, jedoch mit einem deutlich geringeren Entwicklungsaufwand. \\
+
+Es zeigte sich, dass die Auslegung des Energiesystems des Feldroboters DAVEGI Mobile stark von den Einsatzzwecken und dem finalen Energieverbrauch abhängt. DAVEGI mobile befindet sich noch in der Forschungsphase, weshalb zukünftige Einsatzzwecke vom Erfolg der aktuellen Entwicklung abhängig sind. Die externe Umsetzung eines Brennstoffzellensystems wäre mit hohen Kosten verbunden. Die interne Umsetzung aus Einzelkomponenten würde Mitarbeiterkapazitäten binden und den Fokus von der Forschung am Roboter weglenken. Deshalb scheint ein PV-Batterie-System ohne Wasserstoff kurzfristig am praktischsten, da es mit dem SolarMPP-Tracker direkt an die Batterie angeschlossen werden kann. Dadurch kann die Reichweite mit wenig Aufwand schnell erhöht werden, sodass eine sommerliche Datenaufnahme ohne weitere Überlegungen zur Energieversorgung schnell erfolgen kann. \\
+
+Zukünftig ist eine modellprädiktive Regelung unter Einbezug von Wettervorhersagen ein interessantes Forschungsfeld. Insbesondere ist zu untersuchen, inwiefern sich eine heuristische Regelung, wie sie in dieser Arbeit verwendet wurde und die ausschließlich vergangene Zustandsparameter berücksichtigt, in Bezug auf Auslastung und Brennstoffzellengröße verbessern lässt. \\
+
+
+% \subsection{Allgemeine Dimensionierung}
+% Bei einer Dauerleistung von 450 W ist eine PV-Fläche von ca. 5 $m^{2}$ nicht überdimensioniert. Eine Brennstoffzelle mit 500 W Leistung ist ausreichend. Eine 1.000-W-Brennstoffzelle erhöht jedoch den Wirkungsgrad und reduziert die Notwendigkeit einer optimalen Regelung. Die Wasserstofftanks sollten mit der maximal möglichen Kapazität (4 · 20 l) ausgelegt werden. Die Batterie sollte klein gehalten werden (z. B. 1 kWh). Ihre minimale Kapazität wird durch die nötigen Spitzenleistungen bestimmt.\\
+
+
+% \subsection{Alternativen}
+% Ein regeneratives Brennstoffzellensystem (RFC) scheint nicht sinnvoll zu sein. Die Energiedichte eines RFC beträgt 250 bis 700 Wh/kg \cite{NASA2002HeliosFactsheet}. Dies ist deutlich höher als die angenommenen 160 Wh/kg von $LiFePO_{4}$-Batterien. Da die PV-Panelfläche jedoch nur wenig Überschussstrom erzeugt, ist ein hoher Wirkungsgrad entscheidend. \\
+
+% Benzin hat eine Energiedichte von 12 kWh/kg und Ottomotoren einen Wirkungsgrad von bis zu 30 \%. Eine Gewichtsanalyse für einen benzinbetriebenen Range Extender könnte sinnvolle Ergebnisse liefern.\\
+
+% Wenn alle drei bis sechs Stunden ein automatischer Batteriewechsel durchgeführt würde, wäre ein geringes Batteriegewicht von 10 kg ausreichend. \\
+
+% \subsection{Fazit}
+
+
+
+\section{Verwendete Hilfsmittel}
+Als Umgebung für die Simulation wurde VS Code mit Anaconda Python verwendet. Zur Generierung von Funktionen zum Laden von Daten und zur Generierung von matplotlib-Plots wurde ChatGPT von OpenAI verwendet. Jede Funktion und Klasse, die eine für die Bachelorarbeit relevante Logik erfordert, wurde selbst geschrieben. Dabei wurden folgende Python-Bibliotheken verwendet: numpy, scipy, json, matplotlib.pyplot, os, tkinter, PIL, typing.Optional, pandas, datetime, warnings. Für das Finden der Funktionen in den Bibliotheken wurde ChatGPT als Ersatz für das Durchforsten von Dokumentationen verwendet. Es wurde kein Text dieser Bachelorarbeit von einer KI generiert, lediglich sprachlich von DeepL Write aufgebessert. DeepL Write verbessert dabei Rechtschreibung, Grammatik und Wortwahl, ändert inhaltlich jedoch nichts. Der LaTeX-Code für Tabellen und Grafiken wurde von ChatGPT generiert, ohne den Inhalt zu verändern. KI hat demnach nur Hilfsaufgaben übernommen und trägt nicht zum Inhalt bei. Felix Haseleu hat mit meiner Assistenz den Energiebedarf des Feldroboters ermittelt. Frank Peters hat mit meiner Assistenz das CAD-Modell des Feldroboters um das Energiesystem erweitert. Tim Redick hat mich als mein Betreuer inhaltlich auf zu überarbeitende Bereiche der Bachelorarbeit hingewiesen.

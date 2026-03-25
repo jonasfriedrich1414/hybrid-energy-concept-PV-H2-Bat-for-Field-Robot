@@ -1,0 +1,44 @@
+\babel@toc {ngerman}{}\relax 
+\contentsline {section}{\numberline {1}Motivation}{2}{section.1}%
+\contentsline {section}{\numberline {2}State of the art}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Solar elekrische Autos (SEV)}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Solar und Hybrid betriebene Drohnen und Flugzeuge}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Hybrider Antriebe bei einem Feldroboter}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Hybrider Antrieb am Traktor}{5}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Modellprädiktive Regelung des Energiemanagement für Hybridsysteme}{6}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Regelung des Energiemanagement durch einfache Heuristiken}{7}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Methodik}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Monte-Carlo-Simulation auf Solardaten}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Messung Energiebedarf}{8}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Messung des Antriebs}{8}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Messung des Werkzeugs}{8}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}Pareto-Optimierung}{8}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Integralerhaltende Dateninterpolation}{9}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Simulationsparameter}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Produkte}{9}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Photovoltaik}{9}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Unterkonstruktion}{10}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Brennstoffzelle}{10}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.4}Wasserstofftank}{12}{subsubsection.4.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.5}Batterie und Laderegler}{12}{subsubsection.4.1.5}%
+\contentsline {subsection}{\numberline {4.2}Regelung}{13}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}weitere Annahmen}{14}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Reiner Wasserstoffbetrieb}{15}{subsection.4.4}%
+\contentsline {section}{\numberline {5}CAD modell des Feldroboters}{15}{section.5}%
+\contentsline {section}{\numberline {6}Analyse der verwendeten Daten}{16}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Historische Solare Strahlungsdaten}{16}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Statistische Betrachtung}{16}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Relevanz der PV-Modulausrichtung}{16}{subsubsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.2}Messwerte des Energiebedarfs}{18}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Ergebnisse}{18}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Diskussion}{18}{subsubsection.6.2.2}%
+\contentsline {section}{\numberline {7}Simulation einer einzelnen Zeitreihe}{18}{section.7}%
+\contentsline {subsubsection}{\numberline {7.0.1}Ergebnisse}{18}{subsubsection.7.0.1}%
+\contentsline {subsubsection}{\numberline {7.0.2}Diskussion}{19}{subsubsection.7.0.2}%
+\contentsline {section}{\numberline {8}Simulation über mehrere Zeitreihen und variable Systemkomponenten}{20}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Ergebnisse der Simulation mit Pareto-Optimierung}{20}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Diskussion der Pareto Fronten im Juni mit variablen Tankintervallen}{20}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Reiner PV-Batterie Betrieb über das Jahr bei unterschiedlicher Last}{23}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Reiner Wasserstoffbetrieb}{24}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Kombinierter Betrieb von PV H2 und Batterie}{24}{subsection.8.5}%
+\contentsline {section}{\numberline {9}Erkenntnisse}{25}{section.9}%
