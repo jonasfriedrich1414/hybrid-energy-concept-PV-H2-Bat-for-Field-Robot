@@ -1,0 +1,125 @@
+\section{Stand der Technik}
+In diesem Kapitel wird ein Überblick über den Stand der Technik bei hybriden Feldrobotern sowie in angrenzenden Bereichen wie solarelektrischen Autos und Flugzeugen gegeben. Diese stellen sich in Teilaspekten ähnlichen Herausforderungen. Ein solarelektrisches Auto ähnelt einem Feldroboter in den Dimensionen Größe und Gewicht. Die Fläche, die man mit PV-Zellen abdecken könnte, ist ähnlich, sodass eine ähnliche Leistung von der Sonne bereitgestellt werden kann. Bei solarelektrischen Flugzeugen ist die Gewichtsoptimierung entscheidend, was auch beim Feldroboter ein wichtiger Aspekt ist. \\
+Da ein reiner Solarbetrieb ohne Kraftstoff auskommt, maximale Autonomie bietet und auf eine bewährte Technik zurückgreift, stellt er die wünschenswerte Ideallösung dar. Deshalb wird er zuerst betrachtet, bevor die Regelungsstrategien und Optimierungsalgorithmen von hybriden Energiesystemen behandelt werden.
+
+
+\subsection{Solar elekrische Autos (SEV)}
+Das erste solarbetriebene Auto, das von General Motors vorgestellt wurde, war 1955 das etwa 38 cm lange Spielzeugauto Sunmobile.
+Es wurde von zwölf Selen-Photovoltaikzellen betrieben.
+Ein Meilenstein wurde 1982 mit dem „Quiet Achiever” erreicht. Dieses Solarfahrzeug eine Strecke von 4.000 km durch Australien zurück. Die Fahrt dauerte 20 Tage bei einer Durchschnittsgeschwindigkeit von nur 22,5~km/h. Dies hat gezeigt, dass das Fahren mit Solarstrom grundsätzlich möglich ist.
+1987 fand die erste World Solar Challenge statt. Dieses Rennen durch Australien löste einen Innovationsschub aus. Der GM Sunraycer legte die 3005~km lange Rennstrecke mit ca. 66,9~km/h zurück. Das Auto hatte 8.800 Solarzellen und ein Elektromotor mit einem Wirkungsgrad von 92~\%.
+Aufgrund der Fortschritte bei den australischen Solarrennen entwickelte General Motors zunächst den GM Impact und schließlich den GM EV1. Der EV1 war das erste moderne Elektroauto, das von 1996 bis 1999 in Serie produziert wurde.
+Das erste Elektroauto für den Massenmarkt war der Toyota Prius PHV aus dem Jahr 2016, bei dem ein Solardach als Sonderausstattung verfügbar war. Dies sollte die elektrische Reichweite um ca. 6,1~km pro Tag erhöhen. 
+In der Folge kamen einige weitere Autos mit Solardach auf den Markt, darunter der Lightyear One im Jahr 2022 mit einer täglichen Reichweite von 30 bis 45~km. Diese nutzen deutlich effizientere PV-Zellen mit einem Wirkungsgrad von 20 bis 30~\%. 
+Dennoch bleibt die maximal mögliche tägliche Reichweite sehr begrenzt. Ein Solardach mit 700 Wp bis 1 kWp kann täglich nur zwei bis drei kWh Strom erzeugen. Deshalb wurde das Solardach bisher immer nur als Reichweitenverlängerer eingesetzt. 
+Tesla hatte ein Solardach für den Cybertruck in Erwägung gezogen, priorisiert jedoch das Aufladen mit Netzstrom. \cite{oluwalana_solar-powered-cars_2025} 
+
+
+\begin{figure}[htbp]
+    \centering
+    % Erste Subfigure
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Solar-car-sunmobile-1955.jpg}
+        \caption{GM Sunmobile Solar Spielzeug Auto 1955 \cite{GM_PV_Play_Car_2023}}
+        \label{fig:gm_pv_play_car}
+    \end{subfigure}
+    \hfill
+    % Zweite Subfigure
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Prius.jpg}
+        \caption{Toyota Prius 2016 mit Solardach, 6~km Reichweite \cite{oluwalana_solar-powered-cars_2025}}
+        \label{fig:prius}
+    \end{subfigure}
+    \hfill
+    % Dritte Subfigure
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Lightyear_One.jpg}
+        \caption{Lightyear One 2022 SOTA, 30+~km Reichweite \cite{Lightyear0_Wikipedia_2026}}
+        \label{fig:lightyear}
+    \end{subfigure}
+    \caption{Übersicht über drei Solarfahrzeuge und Prototypen}
+    \label{fig:solar_cars_overview}
+\end{figure}
+
+
+
+\subsection{Solar und Hybrid betriebene Drohnen und Flugzeuge}
+Wie beim Auto mit Sonnenstrom ist auch bei unbemannten Drohnen die Idee des endlosen Flugs bekannt geworden. Dies könnte für Anwendungen, die sonst von teuren Satelliten ausgeführt werden, relevanter werden als für den Passagierverkehr.
+Im Hinblick auf Solarstrom hat ein Flugzeug gegenüber einem Auto den großen Vorteil seiner großen Tragflächen, die eine große Fläche für PV-Zellen bieten. Dem steht jedoch die Leistung gegenüber, die für den Auftrieb verwendet werden muss.  Dafür ist eine Gewichtsoptimierung erforderlich. 
+Das erste solarbetriebene Flugzeug der Welt war die unbemannte Sunrise 1 von Astro Flight, die 1974 ihren Jungfernflug absolvierte. Sie wog 12,3 Kilogramm und hatte eine Spannweite von 9,8 Metern.
+Im Rahmen des ERAST-Projekts der NASA wurden ab Ende der 1970er Jahre Nurflügel-Prototypen mit immer größer werdender Spannweite gebaut. Dazu zählen der Pathfinder, der Centurion und der Helios-Prototyp mit einer Spannweite von 75,3 Metern.
+Der für große Höhen ausgelegte Helios HP01 erreichte im Jahr 2001 eine Höhe von 29,5 km. Der Helios HP03 sollte einen 20-stündigen Flug absolvieren, zerbrach jedoch vorher über dem Pazifik.
+Im Jahr 2005 stellte die SoLong von AC Propulsion mit einem 48-stündigen Nonstop-Flug einen neuen Rekord auf. Dabei nutzte diese zusätzlich zu PV-Zellen auch Aufwinde. Nach 48 Stunden wurde der Flug aufgrund der Erschöpfung der am Boden die Steuerung übernehmenden Piloten beendet. 2010 flog die Zephyr 7 14 Tage am Stück. \cite{zhu_solar-powered-planes_2014} \\
+Im Jahr 2016 vollendete das medienwirksame Projekt „Solar Impulse 2” mit einem bemannten Solarflugzeug die Umrundung der Welt. Dazu gehörte unter anderem ein Nonstop-Flug über den Atlantik  \cite{SolarImpulse2016}. \\
+\begin{figure}[t]
+    \centering
+    % Erste Subfigure
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{HeliosHP01.png}
+        \caption{die unbemannte Helios HP01, welche einen Höhenrekord von 29.5 km aufstellte. \cite{NASA2002HeliosFactsheet}}
+        \label{fig:Helios}
+    \end{subfigure}
+    % Zweite Subfigure
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{SolarImpulse2.png}
+        \caption{Die bemannte Solar Impulse 2 über den Pyramiden von Gizeh \cite{SolarImpulse2016}}
+        \label{fig:SolarImpulse2}
+    \end{subfigure}
+    \caption{Zwei der bekanntesten Solarflugzeuge}
+    \label{fig:solarplanes}
+\end{figure}
+Die Helios war mit 62.120 bifacialen Solarzellen aus Silizium mit einem Wirkungsgrad von ca. 19~\% ausgestattet. Tagsüber lieferten die Zellen Strom für den Elektromotor und die Bordsysteme. Die HP01, die den Höhenrekord aufstellte, war somit ein reines Solarflugzeug. Die HP03, die für den Ausdauerflug ausgelegt war, sollte ursprünglich tagsüber mit Strom Wasserstoff und Sauerstoff in einem regenerativen Brennstoffzellensystem speichern, welches dann nachts wieder Strom produzierte. Dies wurde aus zeitlichen und finanziellen Gründen jedoch nicht umgesetzt. Stattdessen kamen kommerzielle Brennstoffzellen aus der Automobilindustrie zum Einsatz, die ein Aufladen der Tanks nicht zuließen. Somit war die Helios HP03 kein reines Solarflugzeug. Das Ziel war jedoch, eine Flugdauer von 7 bis 14 Tagen zu erreichen und nicht, ein reines Solarflugzeug zu bauen. Um die Lasten besser über die Flügel zu verteilen, wurden bei der Helios Batteriepacks in die Flügel eingebaut. \cite{NASA2002HeliosFactsheet,Noll2004HeliosFindings} \\
+Die Energiedichte regenerativer Brennstoffzellensysteme beträgt 250 bis 700 Wh/kg, abhängig von der Entladezeit. Dies ist bei langsamen Entladen mehr als die von Lithium-Akkus, die 2014 eine Energiedichte von 200 Wh/kg aufwiesen. Lithium-Schwefel-Batterien konnten im Labor bereits 350 Wh/kg erreichen. Helios und die Solar Impulse 2 setzten zudem auf den täglichen Gewinn potenzieller Energie und verloren in der Nacht an Höhe. \cite{zhu_solar-powered-planes_2014,NASA2002HeliosFactsheet,Noll2004HeliosFindings}  \\
+
+\subsection{Hybrider Antriebe bei einem Feldroboter}
+
+\begin{figure}
+    \centering
+    
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FCPVbatbot.png}
+        \caption{Mobile Platform. \cite{ghobadpour_optimal_2023}}
+        \label{fig:mobile_plat}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FCPVbatbot_energysystem.png}
+        \caption{Energie Antriebsdesign \cite{ghobadpour_optimal_2023}}
+        \label{fig:energeydesign_mobileplat}
+    \end{minipage}
+
+\end{figure}
+
+
+Am „Hydrogen Research Institute der University of Quebec” wurde der Antrieb eines Feldroboters getestet. Dazu wurde eine mobile Plattform gebaut, die in Abbildung \ref{fig:mobile_plat} zu sehen ist. Diese hatte noch keine Fähigkeiten zur Feldbewirtschaftung, da zunächst das Energiedesign entwickelt und getestet werden sollte. Es wurde ein Brennstoffzellensystem mit nur 150 g Wasserstoff verwendet. Mit einem Heizwert von 33,32 kWh/kg entspricht dies ziemlich genau einem Wasserstoffspeicher von 5 kWh. Zusätzlich wurde ein PV-Modul mit 0,5 m² auf der mobilen Plattform montiert. Ebenfalls verbaut wurde eine Batterie. Das Ziel bestand darin, die Leistung und Kapazität der Batterie sowie die Leistung der Brennstoffzelle so zu optimieren, dass die Kosten des Antriebs möglichst gering ausfallen und das Solarpanel möglichst gut genutzt wird. Außerdem wurden die minimalen und maximalen Ladezustände der Batterie untersucht, um diese möglichst schonend zu nutzen. Die Optimierung zielte darauf ab, die Kosten des Energiesystems zu minimieren, die sich aus den variablen Größen der Einzelkomponenten zusammensetzen. Als Randbedingungen wurden eine maximale Geschwindigkeit von 2 m/s und eine maximale Beschleunigung von 1 m/s² festgesetzt. Außerdem wurde eine Steigfähigkeit von mindestens 15~\% bei 1 m/s festgelegt. 
+Da ein iterieren durch alle Kombinationen der Parameter sehr Rechenaufwändig ist, wurden der Grey-Wolf-Optimierungsalgorithmus (GWO) und der Particle-Swarm-Optimierungsalgorithmus (PSO) verwendet. Diese dienen dazu, sinnvolle Kombinationen von Parametern zu finden, ohne dabei alle Kombinationen iterativ auszuprobieren. \cite{ghobadpour_optimal_2023} \\
+Beide Optimierungsalgorithmen liefern ähnliche Ergebnisse. Diese sind ca. 230 Watt Brennstoffzellenleistung, 620 Watt maximale Batterieleistung, 560 Wh Batteriekapazität und 0,15 kg Wasserstoff, wobei letzteres eine feste Variable ist. \cite{ghobadpour_optimal_2023} \\
+
+
+\subsection{Hybrider Antrieb am Traktor}
+Ein Paper von Mingzhu Zhang et al. behandelt einen Traktor mit Brennstoffzellenantrieb. Hierzu wurden Testfahrten mit einem fossil betriebenem Traktor durchgeführt, um die Messwerte für die Last bei unterschiedlichen Feldarbeiten zu ermitteln. Dieses Lastsignal wurde dann mit zwei unterschiedlichen Methoden in nieder- und hochfrequente Anteile zerlegt. Die niederfrequenten Anteile des Lastsignals werden in der Simulation von der Brennstoffzelle geliefert werden, die hochfrequenten Anteile von der Batterie. Letztere ist deutlich anpassungsfähiger an starke Lastwechsel als die Brennstoffzelle. Extreme Lastspitzen werden durch einen Superkondensator ausgeglichen. Ein PV-Panel wurde nicht berücksichtigt. \cite{zhang_energy_2024} \\
+
+% In der Simulation wurden zwei Methoden zur Frequenz aufspaltung in einer Simulation verglichen. Einmal die Empirical Model decomposition (EMD) und die variabel mode decomposition (VMD). Die Systemeffizent durch die VMD methode lag bei 55~\% was deutlich höher ist als 43.2~\% mit der EMD Methode. \cite{zhang_energy_2024}
+
+
+\subsection{Umsetzung eines Energiemanagements mittels Modellprädiktive Regelung}
+Bevor eine Optimierung der Auslegungsparameter erfolgen kann, muss zunächst eine Regelungsstrategie für die Brennstoffzelle und gegebenenfalls eine Optimierungsstrategie gewählt werden. 
+Die State-of-the-Art-Regelung, die die optimalsten Ergebnisse liefert, ist üblicherweise eine modellprädiktive Regelung (MPC), da bei der MPC nicht nur die momentanen Zustandsvariablen und die momentanen Einflussfaktoren, sondern auch zukünftige Einflussfaktoren berücksichtigt werden, wodurch das Energiemanagement Wirkungsgrad oder Lebensdauer Optimieren kann. Ein relevantes Beispiel für zukünftige Einflussfaktoren sind solare Wetterdaten. Aus diesen kann das Energiemanagementsystem eines Stromspeichers die Stromproduktion für die Photovoltaik bestimmen und gezielt eine minimale Speicherkapazität vorhalten, was die Lebensdauer erhöht, da der Speicher sich seltener im entladenen Zustand befindet. \\ 
+Sind die Einflussfaktoren bekannt bzw. vorhergesagt, muss nun noch ein mathematisches Modell gewählt werden, das aus den aktuellen Zustandsvariablen und zukünftigen Einflussfaktoren die optimalen einstellbaren Zustandsvariablen ermittelt. Dies kann beispielsweise Linear Programming (LP) oder Mixed Integer Linear Programming (MILP) sein. Bei beiden Methoden wird die Zielfunktion von den Entscheidungsvariablen abhängig dargestellt. Beispielsweise kann der Wasserstoffverbrauch in Abhängigkeit von der Brennstoffzellenleistung, der Batterieleistung etc. dargestellt werden. Beim Linear Programming geht eine Entscheidungsvariable ausschließlich linear in die Zielfunktion ein. Dadurch gehen auch nichtlineare Zusammenhänge, wie der Wirkungsgrad einer Brennstoffzelle, nur linearisiert in die Zielfunktion ein. Außerdem werden Nebenbedingungen immer als kontinuierlich angenommen, was Probleme bei An/Aus-Funktionen verursacht. Beim MILP können dagegen auch diskrete Zustände wie An/Aus als Nebenbedingungen formuliert werden. Dadurch ist es ebenfalls möglich, nichtlineare Funktionen wie den Wirkungsgrad durch mehrere lineare Funktionen anzunähern. Sind die optimalen Leistungszustände für die nächsten Zeitschritte bestimmt, wird bei MPC jedoch nur der nächste Zeitschritt umgesetzt. Nach diesem Zeitschritt werden die Vorhersage und die darauf basierende Optimierung erneut durchgeführt. Nach diesem Zeitschritt werden Vorhersage und Optimierung erneut durchgeführt, um die Regelung stets mit den aktuellsten Daten zu versorgen. Dies bedeutet, dass die MPC rollierend ist. \\
+
+Neisen et al. haben ein erneuerbares Energiesystem mit den oben genannten Methoden simuliert.
+Das Energiesystem basiert auf fluktuierender Energieerzeugung durch Windkraft und Photovoltaik. Der erneuerbaren Stromerzeugung steht eine synthetische Last gegenüber. Um die Differenz auszugleichen, wird ein Hybridsystem aus Batterie und Brennstoffzelle simuliert. Für die Dimensionierung sind feste Werte der Komponenten festgelegt. Es werden ein 1,56-MW-Brennstoffzellensystem, ein 5,45-MW-Elektrolyseur, ein 523-MWh-Wasserstoffspeicher und ein 1,42-MWh-Batteriesystem simuliert. Es wird eine Regelung mittels LP- und MILP-Optimierung simuliert, wobei die MILP-Optimierung die Effizienz der Entladung des Hybridsystems um 7~\% gegenüber der LP-Optimierungsmethode verbessert. Die Beladung wird um 3~\% effizienter. Außerdem sinkt die Anzahl der Startvorgänge von 964 mit LP auf 271 mit MILP. Dies ist materialschonender. Durch MILP wird häufiger ein Parallelbetrieb von Batterie und Brennstoffzelle genutzt, was die Teillastnutzung der Systeme erhöht und somit einen höheren Wirkungsgrad bedingt. Die Autoren erwähnen ebenfalls, dass MILP ein idealer Kompromiss zwischen Rechenaufwand und Optimierungsergebnis ist. Eine Nichtlineare Programmierung (NLP) wäre deutlich rechenaufwändiger, was nicht mehr in der verfügbaren Zeit geschehen kann. Ein Durchlauf der MILP benötigte zwei Sekunden. \cite{neisen_supervisory_2018} \\
+
+\subsection{Umsetzung eines Energiemanagement durch einfache Heuristiken}
+In vielen Anwendungen ist die Energieeffizienz nicht der einzige zu optimierende Parameter. Die Optimierungsprobleme können sehr komplex werden, wenn beispielsweise die Lebensdauer der Batterie, weitere Verbraucher wie Elektroautos oder auch die Strompreise mit einbezogen werden. In solchen Fällen kann eine einfache Heuristik gute Ergebnisse bei geringem Aufwand und Rechenleistung bieten. Als Regelung wird dann ein binärer Entscheidungsbaum verwendet. Das Festlegen der Schwellwerte kann benutzerdefiniert erfolgen. So kann für das Laden eines E-Autos beispielsweise die Mindestreichweite festgelegt werden, die in einem Zeitintervall wieder erreichbar sein soll. Bei einem Feldroboter kann beispielsweise eine minimale Entladetiefe der Batterie eingestellt werden.
+
+P. Goli et al. beschreiben in ihrem Paper eine einfache Heuristik zum Laden eines Elektrofahrzeugs (EV) mit PV-Strom und Netzanbindung. Ein DC/DC-Wandler mit integriertem Maximum-Power-Point-Tracker (MPPT) ist am PV-Modul angebracht und speist Strom in einen DC-Bus ein. An diesen sind die anderen Geräte angeschlossen. Dazu gehören ein DC-Step-Down-Wandler, an dem das Elektrofahrzeug (EV) geladen werden kann, sowie ein bidirektionaler Converter für die Netzeinspeisung bzw. den Netzbezug. Die Spannung des DC-Busses ist der einzige Parameter, der festlegt, in welche Richtung Strom fließt. Unter 50 V liefert die PV-Anlage nahezu keine Energie. In diesem Fall wird das Fahrzeug allein aus dem Stromnetz geladen. Bei einer Spannung zwischen 50 und 250 V reicht die PV-Leistung nicht aus, um das Auto allein zu laden; hier wird Netzstrom hinzugefügt. Bei einer Spannung zwischen 250 V und 350 V wird das Auto allein durch die PV-Anlage geladen und die Verbindung zum Netz wird getrennt. Bei über 300 V ist die Leistung der PV-Anlage größer als die Ladeleistung des E-Autos. Die überschüssige Leistung wird dann ins Netz eingespeist. Diese Regelung wurde im kleineren Maßstab experimentell umgesetzt. Der Fokus der Arbeit von P. Goli et al. liegt auf einer möglichst einfachen Umsetzung, um die Komplexität der Regelung zu reduzieren.\cite{goli_pv_2014} 
+
+
